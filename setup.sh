@@ -151,7 +151,7 @@ setup_terminal_prompt()
 install_input_method()
 {
   # 安装 fcitx5 + rime
-  yay -S --noconfirm fcitx5 citx5-configtool fcitx5-gtk fcitx5-qt fcitx5-rime
+  yay -S --noconfirm fcitx5 fcitx5-configtool fcitx5-gtk fcitx5-qt fcitx5-rime
   
   echo 'export GTK_IM_MODULE=fcitx' >> '~/.xprofile'
   echo 'export QT_IM_MODULE=fcitx' >> '~/.xprofile'
