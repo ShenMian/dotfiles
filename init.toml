@@ -1,8 +1,7 @@
 [options]
-    # 设置 SpaceVim 主题及背景，默认的主题是 gruvbox，如果你需要使用更
     # 多的主题，你可以载入 colorscheme 模块
     colorscheme = "gruvbox"
-    # colorscheme = "one"
+    # colorscheme = "PaperColor"
     # 背景可以取值 "dark" 或 "light"
     colorscheme_bg = "dark"
     # 启用/禁用终端真色，在目前大多数终端下都是支持真色的，当然也有
@@ -30,12 +29,13 @@
     # vimcompatible = true
     # 文件树是否显示 git 状态
     enable_filetree_gitstatus = true
+    disabled_plugins = ["nvim-lspconfig"]
 
 #
 # Plugins
 #
 
-# Autocomplete
+# auto complete
 [[layers]]
   name = 'autocomplete'
   auto_completion_return_key_behavior = "complete"
@@ -46,26 +46,32 @@
   default_position = 'top'
   default_height = 30
 
+# Fuzzy file finder
+[[layers]]
+  name = 'leaderf'
+
+[[layers]]
+  name = 'git'
+[[layers]]
+  name = "VersionControl"
+
 # Github Copilot
 [[custom_plugins]]
-  repo = 'github/copilot.vim'
+  repo = "github/copilot.vim"
   merged = false
+
+[[layers]]
+  name = 'lsp' # Still enable lsp layer
+[[custom_plugins]]
+  name = 'neovim/nvim-lspconfig'
 
 #
 # Theme
 #
 
 [[custom_plugins]]
-  repo = 'rakr/vim-one'
+  repo = 'NLKNguyen/papercolor-theme'
   merged = false
-
-#
-# Tools
-#
-
-# Fuzzy file finder
-[[layers]]
-  name = 'leaderf'
 
 #
 # Languages
@@ -74,13 +80,21 @@
 # C/C++
 [[layers]]
   name = 'lang#c'
-  enable_clang_syntax_highlight = true
+  clang_executable = "/usr/bin/clang"
+  # enable_clang_syntax_highlight = true
+  [layer.clang_std]
+    c = "c11"
+    cpp = "c++2a"
+    objc = "c11"
+    objcpp = "c++2a"
+
 [[layers]]
   name = 'lsp'
   enabled_clients = ['clangd']
   filetypes = ["c", "cpp"]
   [layers.override_cmd]
     c = ["clangd"]
+    cpp = ["clangd"]
 
 # Rust
 [[layers]]
@@ -89,8 +103,8 @@
   name = "lsp"
   filetypes = ["rust"]
   [layers.override_cmd]
-    rust = ["rls"]
+    rust = ["rust-analyzer"]
 
 # JS
-# [[layers]]
-#   name = 'lang#javascript'
+[[layers]]
+  name = 'lang#javascript'
