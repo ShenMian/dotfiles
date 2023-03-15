@@ -20,6 +20,10 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 
+Set-PSReadlineOption -HistorySearchCursorMovesToEnd
+Set-PSReadlineOption -ShowToolTips
+Set-PSReadlineOption -PredictionSource History
+
 ### Environment
 
 $Env:http_proxy = "127.0.0.1:7890"
