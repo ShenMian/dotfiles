@@ -22,7 +22,6 @@ Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 
 Set-PSReadlineOption -HistorySearchCursorMovesToEnd
 Set-PSReadlineOption -ShowToolTips
-Set-PSReadlineOption -PredictionSource History
 
 ### Environment
 
@@ -40,4 +39,3 @@ Set-Alias -Name v -Value nvim
 function vi { neovide --multigrid $args }
 Set-Alias -Name lg -Value lazygit
 
-clear

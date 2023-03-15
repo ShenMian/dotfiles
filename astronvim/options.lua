@@ -7,7 +7,6 @@ local options = {
     spell = false, -- sets vim.opt.spell
     signcolumn = "auto", -- sets vim.opt.signcolumn to auto
     wrap = false, -- sets vim.opt.wrap
-    
     scrolloff = 5,
     tabstop = 4,
     shiftwidth = 4,
@@ -22,13 +21,12 @@ local options = {
     diagnostics_mode = 3, -- set the visibility of diagnostics in the UI (0=off, 1=only show in status line, 2=virtual text off, 3=all on)
     icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
     ui_notifications_enabled = true, -- disable notifications when toggling UI elements
-  
     instant_username = "sms", -- instant.nvim
   },
 }
 
 -- Neovide configuration
-if vim.fn.exists("g:neovide") then
+if vim.fn.exists "g:neovide" then
   -- local_vim.opt.guifont = { "Cascadia Code PL", ":h12" }
   options.opt.guifont = { "CaskaydiaCove Nerd Font", ":h12" }
   options.g.neovide_hide_mouse_when_typing = true
