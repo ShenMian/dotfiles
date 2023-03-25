@@ -79,3 +79,4 @@ alias hackernews='hackernews_tui'
 alias reddit='rtv'
 alias youtube='yt-dlp -S "res:1080"'
 
+source /home/sms/.config/broot/launcher/bash/br
