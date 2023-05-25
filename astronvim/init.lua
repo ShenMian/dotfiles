@@ -17,8 +17,8 @@ return {
     },
   },
   -- Set colorscheme to use
-  colorscheme = "astrodark",
-  -- colorscheme = "vscode", -- default: "astrodark"
+  -- colorscheme = "astrodark",
+  colorscheme = "vscode", -- default: "astrodark"
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
     virtual_text = true,
