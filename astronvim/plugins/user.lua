@@ -19,24 +19,23 @@ return {
   -- Motion
   {
     "ggandor/leap.nvim",
+    event = "VeryLazy",
     config = function() require("leap").add_default_mappings() end,
   },
 
   -- Multiple cursors
-  {
-    "mg979/vim-visual-multi",
-    lazy = false,
-  },
+  "mg979/vim-visual-multi",
 
   {
     "echasnovski/mini.nvim",
-    lazy = false,
+    event = "VeryLazy",
     config = function() require("mini.move").setup() end,
   },
 
   -- Auto resize focused window
   {
     "beauwilliams/focus.nvim",
+    event = "VeryLazy",
     config = function() require("focus").setup() end,
   },
 
@@ -79,6 +78,11 @@ return {
 
   -- Markdown links
   "jghauser/follow-md-links.nvim",
+
+  {
+    "m4xshen/hardtime.nvim",
+    opts = { disable_mouse = false },
+  },
 
   -- Markdown real-time preview
   -- :MarkdownPreview
