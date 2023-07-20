@@ -24,7 +24,10 @@ return {
   },
 
   -- Multiple cursors
-  "mg979/vim-visual-multi",
+  {
+    "mg979/vim-visual-multi",
+    event = "VeryLazy",
+  },
 
   {
     "echasnovski/mini.nvim",
