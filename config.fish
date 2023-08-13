@@ -25,7 +25,8 @@ if status is-interactive
     alias vi 'neovide --multigrid'
     alias lg lazygit
 
-    alias open 'xdg-open'
+    alias youtube yt-dlp
+    alias open xdg-open
 
     set -Ux fish_greeting
 end
