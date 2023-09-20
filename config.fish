@@ -28,5 +28,8 @@ if status is-interactive
     alias youtube yt-dlp
     alias open xdg-open
 
+    zoxide init fish | source
+    alias cd z
+
     set -Ux fish_greeting
 end
