@@ -3,7 +3,7 @@
 ## Software
   
 | Name     | Links                                                                                                |
-| -------- | ---------------------------------------------------------------------------------------------------- | 
+| -------- | ---------------------------------------------------------------------------------------------------- |
 | [Neovim] | [config template](https://github.com/AstroNvim/AstroNvim)/[GUI](https://github.com/neovide/neovide). |
 | [VSCode] | [VSCodium].                                                                                          |
 | Tmux     | [config template](https://github.com/gpakosz/.tmux).                                                 |
