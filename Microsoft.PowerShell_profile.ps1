@@ -27,16 +27,16 @@ Set-Alias -Name c -Value clear
 # bat
 Set-Alias -Name cat -Value bat -Option AllScope
 
-# exa
-Set-Alias -Name ls -Value exa -Option AllScope
-Set-Alias -Name l -Value exa
-function ll { exa -la }
+# eza
+Set-Alias -Name ls -Value eza -Option AllScope
+Set-Alias -Name l -Value eza
+function ll { eza -la }
 
 # neovim
 Set-Alias -Name v -Value nvim
 
 # neovide
-function vi { neovide --multigrid $args }
+Set-Alias -Name vi -Value neovide
 
 # lazygit
 Set-Alias -Name lg -Value lazygit
