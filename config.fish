@@ -15,7 +15,7 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 
     # Alias
-    alias ls exa
+    alias ls eza
     alias tree 'ls --tree'
     alias cat 'bat -pp'
 
