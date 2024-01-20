@@ -22,7 +22,7 @@ if status is-interactive
     alias l ls
     alias c clear
     alias v nvim
-    alias vi 'neovide --multigrid'
+    alias vi neovide
     alias lg lazygit
 
     alias youtube yt-dlp
