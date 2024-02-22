@@ -28,7 +28,7 @@ local options = {
 -- Neovide configuration
 if vim.fn.exists "g:neovide" then
   -- options.opt.guifont = { "Cascadia Code PL", ":h12" }
-  options.opt.guifont = { "CaskaydiaCove Nerd Font", ":h10" }
+  options.opt.guifont = { "CaskaydiaCove Nerd Font", ":h14" }
   options.g.neovide_hide_mouse_when_typing = true
   options.g.neovide_fullscreen = false
 
