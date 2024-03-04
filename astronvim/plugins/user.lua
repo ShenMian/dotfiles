@@ -1,14 +1,6 @@
 return {
   -- You can also add new plugins here as well:
   -- Add plugins, the lazy syntax
-  -- "andweeb/presence.nvim",
-  -- {
-  --   "ray-x/lsp_signature.nvim",
-  --   event = "BufRead",
-  --   config = function()
-  --     require("lsp_signature").setup()
-  --   end,
-  -- },
 
   -- vscode colorscheme
   "Mofiqul/vscode.nvim",
@@ -29,12 +21,6 @@ return {
     event = "VeryLazy",
   },
 
-  {
-    "echasnovski/mini.nvim",
-    event = "VeryLazy",
-    config = function() require("mini.move").setup() end,
-  },
-
   -- Auto resize focused window
   {
     "beauwilliams/focus.nvim",
@@ -42,16 +28,8 @@ return {
     config = function() require("focus").setup() end,
   },
 
-  -- AI-powered code completion
+  -- AI code completion
   "Exafunction/codeium.vim",
-
-  -- "codota/tabnine-nvim",
-  -- {
-  --   build = "./dl_binaries.sh",
-  --   config = function()
-  --     require("tabnine").setup()
-  --   end,
-  -- },
 
   -- Remote pair programming
   "jbyuki/instant.nvim",
@@ -62,17 +40,26 @@ return {
   -- Markdown links
   "jghauser/follow-md-links.nvim",
 
-  {
-    "m4xshen/hardtime.nvim",
-    opts = { disable_mouse = false },
-  },
-
   -- Markdown real-time preview
-  -- :MarkdownPreview
   -- "iamcco/markdown-preview.nvim",
   -- {
   --   build = function()
   --     vim.fn["mkdp#util#install"]()
+  --   end,
+  -- },
+
+  -- {
+  --   "echasnovski/mini.nvim",
+  --   event = "VeryLazy",
+  --   config = function() require("mini.move").setup() end,
+  -- },
+
+  -- "andweeb/presence.nvim",
+  -- {
+  --   "ray-x/lsp_signature.nvim",
+  --   event = "BufRead",
+  --   config = function()
+  --     require("lsp_signature").setup()
   --   end,
   -- },
 }
