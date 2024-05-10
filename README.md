@@ -27,5 +27,5 @@
 | preview.sh | 预览文件内容.     |
 | weather.sh | 获取天气状况.     |
 
-> **Warning**
+> [!WARNING]
 > 不要执行 `setup.sh`, 除非你知道你在干什么.  
