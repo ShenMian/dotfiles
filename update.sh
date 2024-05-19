@@ -12,7 +12,7 @@ ln -sf "$PWD/config.fish" ~/.config/fish/config.fish
 # ln -sf "$PWD/lf" ~/.config/
 
 # neovim
-ln -sf "$PWD/astronvim" ~/.config/nvim/lua/user
+# ln -sf "$PWD/astronvim" ~/.config/nvim/lua/user
 
 # lazygit
 ln -sf "$PWD/lazygit/config.yml" ~/.config/lazygit/config.yml
@@ -21,7 +21,7 @@ ln -sf "$PWD/lazygit/config.yml" ~/.config/lazygit/config.yml
 # ln -sf "$PWD/wezterm" ~/.config/
 
 # kitty
-ln -sf "$PWD/kitty" ~/.config/
+# ln -sf "$PWD/kitty" ~/.config/
 
 # alacritty
 # ln -sf "$PWD/alacritty" ~/.config/

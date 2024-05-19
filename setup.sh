@@ -49,27 +49,26 @@ curl -L -C - "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/C
 echo "Setup neovim"
 yay -S --needed --noconfirm neovim python-pynvim || exit 1
 yay -S --needed --noconfirm ripgrep || exit 1
-git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim || exit 1
-nvim  --headless -c 'autocmd User PackerComplete quitall'
-mkdir -p ~/.config/nvim/lua/user
+# TODO: 更新到 AstroNvim 4.0
+# git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim || exit 1
+# nvim  --headless -c 'autocmd User PackerComplete quitall'
+# mkdir -p ~/.config/nvim/lua/user
 yay -S --needed --noconfirm neovide || exit 1
 
-# microsoft-edge (web browser)
-yay -S --needed microsoft-edge-beta-bin || exit 1
-
+# TODO: 迁移到 Fish
 # zsh (shell)
-yay -S --needed --noconfirm zsh-theme-powerlevel10k || exit 1
-p10k configure
-yay -S zsh-vi-mode
+# yay -S --needed --noconfirm zsh-theme-powerlevel10k || exit 1
+# p10k configure
+# yay -S zsh-vi-mode
 
 # tmux (terminal multiplexer)
-yay -S --needed --noconfirm tmux || exit 1
-git clone https://github.com/gpakosz/.tmux.git ~/.config/tmux || exit 1
-ln -s -f ~/.config/tmux/.tmux.conf ~/.tmux.conf
-cp ~/.config/tmux/.tmux.conf.local ~/.tmux.conf.local
+# yay -S --needed --noconfirm tmux || exit 1
+# git clone https://github.com/gpakosz/.tmux.git ~/.config/tmux || exit 1
+# ln -s -f ~/.config/tmux/.tmux.conf ~/.tmux.conf
+# cp ~/.config/tmux/.tmux.conf.local ~/.tmux.conf.local
 
 # lf (terminal file manager)
-yay -S --needed --noconfirm lf, trash-cli || exit 1
+# yay -S --needed --noconfirm lf, trash-cli || exit 1
 
 # kitty (terminal)
 # yay -S --needed --noconfirm kitty
@@ -87,7 +86,7 @@ sudo sh -c """
 } >> "/etc/profile"
 """
 
-# fcitx5 skins
+# fcitx5-rime Windows 10 like skins
 git clone https://github.com/thep0y/fcitx5-themes /tmp/fcitx5-themes || exit 1
 mkdir -p ~/.local/share/fcitx5/themes
 cp -r /tmp/fcitx5-themes/spring ~/.local/share/fcitx5/themes
@@ -107,24 +106,24 @@ mkdir -p ~/.config/fcitx5/conf
 } >> "$HOME/.config/fcitx5/conf/classicui.conf"
 
 # 启用候选字符单行显示
-{
-	echo '# 垂直候选列表'
-	echo 'Vertical Candidate List=False'
-} >> "$HOME/.config/fcitx5/conf/classicui.conf"
-echo 'PreeditInApplication=True' >> "$HOME/.config/fcitx5/conf/rime.conf"
+# {
+# 	echo '# 垂直候选列表'
+# 	echo 'Vertical Candidate List=False'
+# } >> "$HOME/.config/fcitx5/conf/classicui.conf"
+# echo 'PreeditInApplication=True' >> "$HOME/.config/fcitx5/conf/rime.conf"
 
 # github-cli
 yay -S --needed --noconfirm github-cli || exit 1
-# gh auth login
+gh auth login
 gh auth setup-git
 
 # power managment
-yay -S --needed --noconfirm tlp tlpui powertop || exit 1
-sudo systemctl enable tlp --now
+# yay -S --needed --noconfirm tlp tlpui powertop || exit 1
+# sudo systemctl enable tlp --now
 
 # neomutt
-yay -S --needed --noconfirm neomutt || exit 1
-yay -S --needed mutt-wizard|| exit 1
+# yay -S --needed --noconfirm neomutt || exit 1
+# yay -S --needed mutt-wizard|| exit 1
 
 # razer drivers
 yay -S --needed --noconfirm openrazer-meta polychromatic linux61-headers
@@ -153,18 +152,38 @@ yay -S --needed --noconfirm lazygit git-delta || exit 1
 
 ###
 
-yay -S --needed --noconfirm exa bat zoxide fd tldr ncdu btop the_silver_searcher || exit 1
-yay -S --needed --noconfirm element-desktop telegram-desktop gomuks electronic-wechat-uos-bin || exit 1
-yay -S --needed --noconfirm qqmusic-bin typioca glow || exit 1
-yay -S --needed --noconfirm npm nodejs || exit 1
+# 命令行
+yay -S --needed --noconfirm eza bat zoxide fd btop || exit 1
+
+# Flatpak theme
+flatpak install org.gtk.Gtk3theme.Adw-dark
+
+# 娱乐软件
+flatpak install com.qq.QQmusic
+flatpak install com.valvesoftware.Steam
+
+# 社交软件
+flatpak install im.riot.Riot # Element
+flatpak install org.telegram.desktop
+flatpak install com.qq.QQ
+flatpak install com.tencent.WeChat
+
+# 浏览器
+flatpak install com.microsoft.Edge
+
+# 办公软件
+flatpak install org.libreoffice.LibreOffice
+
+flatpak install com.bitwarden.desktop
 
 ###
 
+# 卸载 Manjaro 自带的软件
 yay -Rns --noconfirm firefox
 # yay -Rns vi gnome-terminal gedit
 
 ./update.sh
 
-read -p "Press any key to resume ..."
+read -p "Press any key to reboot ..."
 
 reboot
