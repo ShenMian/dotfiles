@@ -8,5 +8,6 @@ return {
   { import = "astrocommunity.colorscheme.vscode-nvim" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.lua" },
+  -- { import = "astrocommunity.pack.cpp" },
   -- import/override with your plugins folder
 }
