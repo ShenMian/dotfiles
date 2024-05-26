@@ -2,17 +2,11 @@
 
 cd "$( cd "$( dirname "$0"  )" && pwd  )" || exit
 
-# zsh
-# ln -sf "$PWD/.zshrc" ~/.zshrc
-
 # fish
 ln -sf "$PWD/config.fish" ~/.config/fish/config.fish
 
-# lf
-# ln -sf "$PWD/lf" ~/.config/
-
 # neovim
-# ln -sf "$PWD/astronvim" ~/.config/nvim/lua/user
+ln -sf "$PWD/astronvim" ~/.config/nvim
 
 # lazygit
 ln -sf "$PWD/lazygit/config.yml" ~/.config/lazygit/config.yml
@@ -26,5 +20,12 @@ ln -sf "$PWD/lazygit/config.yml" ~/.config/lazygit/config.yml
 # alacritty
 # ln -sf "$PWD/alacritty" ~/.config/
 
+# lf
+# ln -sf "$PWD/lf" ~/.config/
+
 # tmux
 # ln -sf "$PWD/tmux/.tmux.conf.local" ~/.tmux.conf.local
+
+# zsh
+# ln -sf "$PWD/.zshrc" ~/.zshrc
+

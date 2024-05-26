@@ -1,4 +1,30 @@
+-- You can also add or configure plugins by creating files in this `plugins/` folder
+-- Here are some examples:
+
+---@type LazySpec
 return {
+  -- Reopen files at last edit position
+  "farmergreg/vim-lastplace",
+
+  -- Motion
+  {
+    "ggandor/leap.nvim",
+    config = function() require("leap").add_default_mappings() end,
+    lazy = false,
+  },
+
+  -- Multiple cursors
+  {
+    "mg979/vim-visual-multi",
+    event = "VeryLazy",
+  },
+
+  -- AI code completion
+  "Exafunction/codeium.vim",
+
+  -- Remote pair programming
+  -- "jbyuki/instant.nvim",
+
   -- customize alpha options
   {
     "goolord/alpha-nvim",
@@ -13,23 +39,34 @@ return {
       return opts
     end,
   },
+
+  -- "andweeb/presence.nvim",
+  -- {
+  --   "ray-x/lsp_signature.nvim",
+  --   event = "BufRead",
+  --   config = function() require("lsp_signature").setup() end,
+  -- },
+
+  -- vscode colorscheme
+  -- "Mofiqul/vscode.nvim",
   -- You can disable default plugins as follows:
   -- { "max397574/better-escape.nvim", enabled = false },
-  --
+
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   -- {
   --   "L3MON4D3/LuaSnip",
   --   config = function(plugin, opts)
-  --     plugin.default_config(opts) -- include the default astronvim config that calls the setup call
+  --     require "astronvim.plugins.configs.luasnip"(plugin, opts) -- include the default astronvim config that calls the setup call
   --     -- add more custom luasnip configuration such as filetype extend or custom snippets
   --     local luasnip = require "luasnip"
   --     luasnip.filetype_extend("javascript", { "javascriptreact" })
   --   end,
   -- },
+
   -- {
   --   "windwp/nvim-autopairs",
   --   config = function(plugin, opts)
-  --     plugin.default_config(opts) -- include the default astronvim config that calls the setup call
+  --     require "astronvim.plugins.configs.nvim-autopairs"(plugin, opts) -- include the default astronvim config that calls the setup call
   --     -- add more custom autopairs configuration such as custom rules
   --     local npairs = require "nvim-autopairs"
   --     local Rule = require "nvim-autopairs.rule"
@@ -53,18 +90,6 @@ return {
   --       -- disable for .vim files, but it work for another filetypes
   --       Rule("a", "a", "-vim")
   --     )
-  --   end,
-  -- },
-  -- By adding to the which-key config and using our helper function you can add more which-key registered bindings
-  -- {
-  --   "folke/which-key.nvim",
-  --   config = function(plugin, opts)
-  --     plugin.default_config(opts)
-  --     -- Add bindings which show up as group name
-  --     local wk = require "which-key"
-  --     wk.register({
-  --       b = { name = "Buffer" },
-  --     }, { mode = "n", prefix = "<leader>" })
   --   end,
   -- },
 }
