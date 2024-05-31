@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
-config.font = wezterm.font 'CaskaydiaCove Nerd Font'
+config.font = wezterm.font 'Cascadia Code NF'
 config.font_size = 12.0
 
 config.color_scheme = 'Tango (terminal.sexy)'
