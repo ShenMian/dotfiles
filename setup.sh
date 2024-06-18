@@ -163,7 +163,7 @@ flatpak install com.qq.QQmusic
 flatpak install com.valvesoftware.Steam
 
 # 社交软件
-flatpak install im.riot.Riot # Element
+# flatpak install im.riot.Riot # Element
 flatpak install org.telegram.desktop
 flatpak install com.qq.QQ
 flatpak install com.tencent.WeChat
@@ -180,7 +180,7 @@ flatpak install com.bitwarden.desktop
 
 # 卸载 Manjaro 自带的软件
 yay -Rns --noconfirm firefox
-# yay -Rns vi gnome-terminal gedit
+# yay -Rns vi gnome-terminal gedit gthumb
 
 ./update.sh
 
