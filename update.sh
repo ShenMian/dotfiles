@@ -12,7 +12,7 @@ ln -sf "$PWD/astronvim" ~/.config/nvim
 ln -sf "$PWD/lazygit/config.yml" ~/.config/lazygit/config.yml
 
 # wezterm
-# ln -sf "$PWD/wezterm" ~/.config/
+ln -sf "$PWD/wezterm" ~/.config/
 
 # kitty
 # ln -sf "$PWD/kitty" ~/.config/
