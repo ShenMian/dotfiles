@@ -49,29 +49,11 @@ curl -L -C - "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/C
 echo "Setup neovim"
 yay -S --needed --noconfirm neovim python-pynvim || exit 1
 yay -S --needed --noconfirm ripgrep || exit 1
-# TODO: 更新到 AstroNvim 4.0
-# git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim || exit 1
-# nvim  --headless -c 'autocmd User PackerComplete quitall'
-# mkdir -p ~/.config/nvim/lua/user
 yay -S --needed --noconfirm neovide || exit 1
 
-# TODO: 迁移到 Fish
-# zsh (shell)
-# yay -S --needed --noconfirm zsh-theme-powerlevel10k || exit 1
-# p10k configure
-# yay -S zsh-vi-mode
-
-# tmux (terminal multiplexer)
-# yay -S --needed --noconfirm tmux || exit 1
-# git clone https://github.com/gpakosz/.tmux.git ~/.config/tmux || exit 1
-# ln -s -f ~/.config/tmux/.tmux.conf ~/.tmux.conf
-# cp ~/.config/tmux/.tmux.conf.local ~/.tmux.conf.local
-
-# lf (terminal file manager)
-# yay -S --needed --noconfirm lf, trash-cli || exit 1
-
-# kitty (terminal)
-# yay -S --needed --noconfirm kitty
+# Fish
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+fisher install IlanCosman/tide@v6
 
 # fcitx5 (input method)
 yay -S --needed --noconfirm fcitx5 fcitx5-configtool fcitx5-gtk fcitx5-qt fcitx5-rime || exit 1
@@ -117,14 +99,6 @@ yay -S --needed --noconfirm github-cli || exit 1
 gh auth login
 gh auth setup-git
 
-# power managment
-# yay -S --needed --noconfirm tlp tlpui powertop || exit 1
-# sudo systemctl enable tlp --now
-
-# neomutt
-# yay -S --needed --noconfirm neomutt || exit 1
-# yay -S --needed mutt-wizard|| exit 1
-
 # razer drivers
 yay -S --needed --noconfirm openrazer-meta polychromatic linux61-headers
 sudo modprobe razerkbd
@@ -155,21 +129,17 @@ yay -S --needed --noconfirm lazygit git-delta || exit 1
 # 命令行
 yay -S --needed --noconfirm eza bat zoxide fd btop || exit 1
 
-# Flatpak theme
-flatpak install org.gtk.Gtk3theme.Adw-dark
+# 浏览器
+flatpak install com.microsoft.Edge
 
 # 娱乐软件
 flatpak install com.qq.QQmusic
 flatpak install com.valvesoftware.Steam
 
 # 社交软件
-# flatpak install im.riot.Riot # Element
 flatpak install org.telegram.desktop
 flatpak install com.qq.QQ
 flatpak install com.tencent.WeChat
-
-# 浏览器
-flatpak install com.microsoft.Edge
 
 # 办公软件
 flatpak install org.libreoffice.LibreOffice
@@ -187,3 +157,25 @@ yay -Rns --noconfirm firefox
 read -p "Press any key to reboot ..."
 
 reboot
+
+# tmux (terminal multiplexer)
+# yay -S --needed --noconfirm tmux || exit 1
+# git clone https://github.com/gpakosz/.tmux.git ~/.config/tmux || exit 1
+# ln -s -f ~/.config/tmux/.tmux.conf ~/.tmux.conf
+# cp ~/.config/tmux/.tmux.conf.local ~/.tmux.conf.local
+
+# lf (terminal file manager)
+# yay -S --needed --noconfirm lf, trash-cli || exit 1
+
+# kitty (terminal)
+# yay -S --needed --noconfirm kitty
+
+# neomutt
+# yay -S --needed --noconfirm neomutt || exit 1
+# yay -S --needed mutt-wizard|| exit 1
+
+# zsh (shell)
+# yay -S --needed --noconfirm zsh-theme-powerlevel10k || exit 1
+# p10k configure
+# yay -S zsh-vi-mode
+
