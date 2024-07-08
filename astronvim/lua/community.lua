@@ -6,6 +6,7 @@
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.colorscheme.vscode-nvim" },
+  { import = "astrocommunity.completion.copilot-lua" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.lua" },
   -- { import = "astrocommunity.pack.cpp" },
