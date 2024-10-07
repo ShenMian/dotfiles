@@ -135,3 +135,4 @@ main {
 }
 
 // TODO: Install fisher, lazygit, git-delta, nodejs (for copilot.lua in neovim)
+// yay -Y --devel --save
