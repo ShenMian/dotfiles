@@ -32,7 +32,7 @@ fun install_flatpak_apps() {
 
     let utilities = ["com.github.tchx84.Flatseal", "org.bleachbit.BleachBit"]
     let browsers = ["org.mozilla.firefox", "org.torproject.torbrowser-launcher"] // flatpak install flathub org.mozilla.firefox
-    let security = ["com.bitwarden.desktop", "org.kde.kleopatra", "org.keepassxc.KeePassXC"]
+    let security = ["com.bitwarden.desktop", "org.kde.kleopatra"]
     let communication = ["com.qq.QQ", "com.tencent.WeChat", "org.telegram.desktop"]
     let development = ["org.wezfurlong.wezterm", "com.visualstudio.code", "dev.zed.Zed", "re.rizin.cutter"]
     let multimedia = [Text]
