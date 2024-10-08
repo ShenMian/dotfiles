@@ -46,6 +46,8 @@ fun install_flatpak_apps() {
 }
 
 fun setup_flatpak_theme() {
+    install_base_devel()?
+    
     echo "Setting up flatpak theme"
 
     $ sudo pacman -S --noconfirm --needed ostree appstream-glib $?
@@ -53,7 +55,7 @@ fun setup_flatpak_theme() {
     $ git clone --depth 1 https://github.com/refi64/stylepak.git $?
     $ cd stylepak $?
 
-    $ ./stylepak install-system $? // FIXME: Failed
+    // $ ./stylepak install-system $?
     $ ./stylepak install-user $?
 
     $ cd .. $?

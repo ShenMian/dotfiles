@@ -11,6 +11,10 @@ fun install_aur_package(package: Text) {
         $ yay -S --noconfirm --needed {package} $?
     }
     // Tools in `base-devel` may required for building AUR packages
+    install_base_devel()?
+}
+
+fun install_base_devel() {
     install_package("base-devel")?
 }
 
