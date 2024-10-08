@@ -66,6 +66,7 @@ fun setup_input_method() {
     $ sudo pacman -S --noconfirm --needed fcitx5 fcitx5-configtool fcitx5-gtk fcitx5-qt fcitx5-rime $?
     // 雾凇拼音
     // Warning: This step may take a long time
+    $ yay -Y --devel --save $?
     $ yay -S --noconfirm --needed rime-ice-git $?
 }
 
@@ -83,8 +84,15 @@ fun setup_rust() {
 fun setup_aur_helper() {
     setup_rust()?
 
-    echo "Installing AUR helper (paru)"
+    echo "Installing AUR helper"
+    install_yay()
+}
 
+fun install_yay() {
+    $ sudo pacman -S --noconfirm --needed yay $?
+}
+
+fun install_paru() {
     $ git clone --depth 1 https://aur.archlinux.org/paru.git $?
     $ cd paru $?
 
@@ -96,7 +104,7 @@ fun setup_aur_helper() {
 
 fun setup_fish_shell() {
     echo "Setting up fish shell"
-    $ sudo pacman -S --noconfirm --needed fish $?
+    $ sudo pacman -S --noconfirm --needed fish fisher $?
 
     echo "Changing default shell to fish"
     let path = $which fish$?
@@ -107,7 +115,7 @@ fun setup_packages() {
     echo "Installing packages"
 
     let packages = [
-        "neovim", "neovide", "fastfetch", "bat", "exa", "fd", "ripgrep"
+        "neovim", "lazygit", "neovide", "fastfetch", "bat", "exa", "fd", "ripgrep", "git-delta"
     ]
     loop package in packages {
         echo "Installing $package"
@@ -124,7 +132,7 @@ main {
     // setup_mirrors()?
     // setup_git()?
 
-    // setup_aur_helper()?
+    setup_aur_helper()?
 
     setup_fonts()?
     setup_input_method()?
@@ -133,6 +141,3 @@ main {
     setup_flatpak_apps()?
     setup_packages()?
 }
-
-// TODO: Install fisher, lazygit, git-delta, nodejs (for copilot.lua in neovim)
-// yay -Y --devel --save
