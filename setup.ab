@@ -1,3 +1,5 @@
+import * from "./utils.ab"
+
 fun get_root() {
     silent $ sudo echo $?
 }
@@ -13,11 +15,13 @@ fun setup_mirrors() {
 fun setup_git() {
     echo "Setting up git"
 
-    $ git config --global init.defaultBranch main $?
     $ git config --global user.name "ShenMian" $?
     $ git config --global user.email "sms_school@outlook.com" $?
 
-    $ sudo pacman -S --noconfirm --needed github-cli $?
+    $ git config --global init.defaultBranch main $?
+    $ git config --global pull.rebase true $
+
+    install_package("github-cli")?
     // Warning: Human intervention required
     $ gh auth login $?
     $ gh auth setup-git $?
@@ -37,7 +41,7 @@ fun install_flatpak_apps() {
     let apps = utilities + browsers + security + communication + development + multimedia + office
     loop app in apps {
         echo "Installing {app}"
-        $ flatpak install -y {app} $?
+        install_flatpak_package(app)?
     }
 }
 
@@ -63,47 +67,29 @@ fun setup_flatpak_apps() {
 
 fun setup_input_method() {
     echo "Installing input method (fcitx5 + rime)"
+    // TODO: Use `install_package`
     $ sudo pacman -S --noconfirm --needed fcitx5 fcitx5-configtool fcitx5-gtk fcitx5-qt fcitx5-rime $?
+
     // 雾凇拼音
+    unsafe $ yay -Y --devel --save $
     // Warning: This step may take a long time
-    $ yay -Y --devel --save $?
-    $ yay -S --noconfirm --needed rime-ice-git $?
+    install_aur_package("rime-ice-git")?
 }
 
 fun setup_fonts() {
     echo "Installing fonts"
-    $ sudo pacman -S --noconfirm --needed otf-cascadia-code $?
+    install_package("otf-cascadia-code")?
 }
 
 fun setup_rust() {
     echo "Installing rust"
-    $ sudo pacman -S --noconfirm --needed rustup $?
+    install_package("rust")?
     $ rustup default stable $?
-}
-
-fun setup_aur_helper() {
-    setup_rust()?
-
-    echo "Installing AUR helper"
-    install_yay()
-}
-
-fun install_yay() {
-    $ sudo pacman -S --noconfirm --needed yay $?
-}
-
-fun install_paru() {
-    $ git clone --depth 1 https://aur.archlinux.org/paru.git $?
-    $ cd paru $?
-
-    $ makepkg -si $?
-
-    $ cd .. $?
-    $ rm -rf paru $?
 }
 
 fun setup_fish_shell() {
     echo "Setting up fish shell"
+    // TODO: Use `install_package`
     $ sudo pacman -S --noconfirm --needed fish fisher $?
 
     echo "Changing default shell to fish"
@@ -119,7 +105,7 @@ fun setup_packages() {
     ]
     loop package in packages {
         echo "Installing $package"
-        $ sudo pacman -S --noconfirm --needed {package} $?
+        install_package(package)?
     }
 }
 
@@ -132,7 +118,7 @@ main {
     // setup_mirrors()?
     // setup_git()?
 
-    setup_aur_helper()?
+    install_aur_helper()?
 
     setup_fonts()?
     setup_input_method()?
