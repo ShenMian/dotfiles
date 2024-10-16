@@ -5,20 +5,11 @@ Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadlineOption -HistorySearchCursorMovesToEnd
 Set-PSReadlineOption -ShowToolTips
 
-### Chocolatey
-
-# tab-completions to function for `choco`.
-# See https://ch0.co/tab-completion for details.
-$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-if (Test-Path($ChocolateyProfile)) {
-  Import-Module "$ChocolateyProfile"
-}
-
 ### Environment
 
-# proxy
-$Env:http_proxy = "127.0.0.1:7890"
-$Env:https_proxy = "127.0.0.1:7890"
+# Proxy
+# $Env:http_proxy = "127.0.0.1:7890"
+# $Env:https_proxy = "127.0.0.1:7890"
 
 ### Alias
 
@@ -43,5 +34,4 @@ Set-Alias -Name lg -Value lazygit
 
 ### Prompt
 
-# Starship
 Invoke-Expression (&starship init powershell)
