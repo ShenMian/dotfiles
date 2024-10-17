@@ -18,8 +18,9 @@ config.initial_rows = 30
 config.enable_scroll_bar = true
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-	-- config.default_prog = { "powershell.exe", "-NoLogo" }
-	config.default_prog = { "pwsh.exe", "-NoLogo" }
+	config.default_prog = { "powershell.exe", "-NoLogo" }
+	config.default_cwd = "D:/Users/sms/Desktop"
+	config.font_size = 12.0
 end
 
 local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")

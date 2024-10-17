@@ -1,11 +1,6 @@
 # dotfiles
 
-- **Linux distro**: Manjaro Linux.
-- **IDE**: VSCode, Neovim, Zed.
-- **Shell**: Fish.
-- **Terminal**: WezTerm.
-- **Git**: GitHub Desktop, Lazygit.
-- **Email**: Thunderbird.
+[个人常用软件](https://shenmian.github.io/notes/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E4%B8%AA%E4%BA%BA%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/)
 
 ---
 
