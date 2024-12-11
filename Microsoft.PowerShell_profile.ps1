@@ -35,3 +35,4 @@ Set-Alias -Name lg -Value lazygit
 ### Prompt
 
 Invoke-Expression (&starship init powershell)
+
