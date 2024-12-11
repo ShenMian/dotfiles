@@ -17,6 +17,8 @@ config.initial_rows = 30
 
 config.enable_scroll_bar = true
 
+config.warn_about_missing_glyphs = false
+
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	config.default_prog = { "powershell.exe", "-NoLogo" }
 	config.default_cwd = "D:/Users/sms/Desktop"
@@ -29,7 +31,7 @@ bar.apply_to_config(config, {
 		cwd = {
 			enabled = false,
 		},
-	}
+	},
 })
 
 return config
