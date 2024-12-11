@@ -8,6 +8,7 @@
 
 set -Ux VISUAL 'nvim'
 set -Ux EDITOR 'nvim'
+set -Ux MANPAGER 'nvim +Man!'
 
 fish_add_path -Ua "$HOME/.cargo/bin/"
 
