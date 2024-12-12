@@ -1,4 +1,5 @@
 # Environment
+
 # set -Ux all_proxy 'socks://127.0.0.1:7890/'
 # set -Ux http_proxy 'http://127.0.0.1:7890/'
 # set -Ux https_proxy $http_proxy
@@ -13,24 +14,22 @@ set -Ux MANPAGER 'nvim +Man!'
 fish_add_path -Ua "$HOME/.cargo/bin/"
 
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+    # Remove fish greeting message
+    set -Ux fish_greeting
 
-    # Alias
+    # File management aliases
     alias ls eza
-    alias tree 'ls --tree'
-    alias cat 'bat -pp'
-
     alias l ls
-    alias c clear
+    alias tree 'ls --tree'
+    
+    # Text viewing/editing aliases
+    alias cat 'bat -pp'
     alias v nvim
     alias vi neovide
+    
+    # Utility aliases
+    alias c clear
     alias lg lazygit
-
     alias youtube yt-dlp
     alias open xdg-open
-
-    # zoxide init fish | source
-    # alias cd z
-
-    set -Ux fish_greeting
 end

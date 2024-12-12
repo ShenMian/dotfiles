@@ -1,13 +1,5 @@
-Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
-Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
-Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
-
-Set-PSReadlineOption -HistorySearchCursorMovesToEnd
-Set-PSReadlineOption -ShowToolTips
-
 ### Environment
 
-# Proxy
 # $Env:http_proxy = "127.0.0.1:7890"
 # $Env:https_proxy = "127.0.0.1:7890"
 
@@ -32,7 +24,15 @@ Set-Alias -Name vi -Value neovide
 # lazygit
 Set-Alias -Name lg -Value lazygit
 
+### PowerShell
+
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
+Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
+
+Set-PSReadlineOption -HistorySearchCursorMovesToEnd
+Set-PSReadlineOption -ShowToolTips
+
 ### Prompt
 
 Invoke-Expression (&starship init powershell)
-
