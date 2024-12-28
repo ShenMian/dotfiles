@@ -1,0 +1,16 @@
+font-family = Cascadia Code NF
+font-size = 14
+
+background-opacity = 0.85
+
+cursor-color = #52ad70
+cursor-style = block
+cursor-style-blink = false
+
+# BUG: On Linux with GTK, the calculated window size will not properly take into account window decorations. As a result, the grid dimensions will not exactly match this configuration. If window decorations are disabled (see window-decorations), then this will work as expected.
+window-width = 130
+window-height = 40
+
+shell-integration = fish
+shell-integration-features = no-cursor
+
