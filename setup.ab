@@ -104,7 +104,8 @@ fun setup_packages() {
     echo "Installing packages"
 
     let packages = [
-        "neovim", "lazygit", "neovide", "fastfetch", "bat", "exa", "fd", "ripgrep", "git-delta"
+        "fastfetch", "bat", "exa", "fd", "ripgrep", "git-delta",
+        "neovim", "xclip", "nodejs", "neovide", "lazygit"
     ]
     loop package in packages {
         echo "Installing $package"

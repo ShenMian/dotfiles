@@ -11,7 +11,7 @@ sudo echo &>/dev/null || (
 sudo pacman-mirrors --fasttrack
 sudo pacman -Syyu
 
-sudo pacman -S --noconfirm --needed yay || exit 1
+sudo pacman -S --noconfirm --needed base-devel yay || exit 1
 yay -S --noconfirm --needed amber-bash-bin
 
-amber setup.sh
+amber setup.ab
