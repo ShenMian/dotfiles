@@ -22,9 +22,11 @@ fun setup_git() {
     $ git config --global pull.rebase true $
 
     install_package("github-cli")?
+
     // Warning: Human intervention required
     $ gh auth login $?
     $ gh auth setup-git $?
+
     $ gh extension install github/gh-copilot $?
 }
 
@@ -120,7 +122,7 @@ main {
     }
 
     // setup_mirrors()?
-    // setup_git()?
+    setup_git()?
 
     install_aur_helper()?
 
