@@ -12,7 +12,7 @@ config.window_padding = {
 	top = 0,
 	bottom = 0,
 }
-config.initial_cols = 120
+config.initial_cols = 100
 config.initial_rows = 30
 
 config.enable_scroll_bar = true
