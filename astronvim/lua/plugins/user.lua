@@ -21,29 +21,10 @@ return {
   -- Reopen files at last edit position
   "farmergreg/vim-lastplace",
 
-  -- Multiple cursors
-  {
-    "mg979/vim-visual-multi",
-    event = "VeryLazy",
-  },
-
-  -- Motion
-  {
-    "ggandor/leap.nvim",
-    config = function() require("leap").add_default_mappings() end,
-    lazy = false,
-  },
-
   -- AI code completion
   -- "Exafunction/codeium.vim",
 
   -- Markdown preview
-  {
-    "OXY2DEV/markview.nvim",
-    ft = "markdown",
-
-    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
-  },
   -- {
   --   'MeanderingProgrammer/render-markdown.nvim',
   --   opts = {},
@@ -60,8 +41,6 @@ return {
   --   config = function() require("lsp_signature").setup() end,
   -- },
 
-  -- vscode colorscheme
-  -- "Mofiqul/vscode.nvim",
   -- You can disable default plugins as follows:
   -- { "max397574/better-escape.nvim", enabled = false },
 
