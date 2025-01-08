@@ -24,6 +24,9 @@ Set-Alias -Name vi -Value neovide
 # lazygit
 Set-Alias -Name lg -Value lazygit
 
+# scoop
+Invoke-Expression (&scoop-search --hook)
+
 ### PowerShell
 
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
