@@ -16,5 +16,6 @@ return {
   { import = "astrocommunity.pack.typst" },
   { import = "astrocommunity.pack.haskell" },
   -- { import = "astrocommunity.pack.cpp" },
+  { import = "astrocommunity.recipes.neovide" },
   -- import/override with your plugins folder
 }
