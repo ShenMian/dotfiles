@@ -11,11 +11,14 @@ ln -sf "$PWD/astronvim" ~/.config/nvim
 # lazygit
 ln -sf "$PWD/lazygit/config.yml" ~/.config/lazygit/config.yml
 
-# ghostty
-ln -sf "$PWD/ghostty" ~/.config/
-
 # wezterm
 ln -sf "$PWD/wezterm" ~/.config/
+
+# helix
+ln -sf "$PWD/helix" ~/.config/
+
+# ghostty
+# ln -sf "$PWD/ghostty" ~/.config/
 
 # kitty
 # ln -sf "$PWD/kitty" ~/.config/
