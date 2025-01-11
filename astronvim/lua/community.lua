@@ -6,6 +6,7 @@
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.colorscheme.vscode-nvim" },
+  { import = "astrocommunity.recipes.vscode-icons" },
   { import = "astrocommunity.motion.leap-nvim" },
   { import = "astrocommunity.editing-support.vim-visual-multi" },
   { import = "astrocommunity.completion.copilot-lua" },
@@ -17,5 +18,6 @@ return {
   { import = "astrocommunity.pack.haskell" },
   -- { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.recipes.neovide" },
+  { import = "astrocommunity.workflow.hardtime-nvim" },
   -- import/override with your plugins folder
 }
