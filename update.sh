@@ -17,14 +17,14 @@ ln -sf "$PWD/wezterm" ~/.config/
 # helix
 ln -sf "$PWD/helix" ~/.config/
 
+# alacritty
+ln -sf "$PWD/alacritty" ~/.config/
+
 # ghostty
 # ln -sf "$PWD/ghostty" ~/.config/
 
 # kitty
 # ln -sf "$PWD/kitty" ~/.config/
-
-# alacritty
-# ln -sf "$PWD/alacritty" ~/.config/
 
 # lf
 # ln -sf "$PWD/lf" ~/.config/

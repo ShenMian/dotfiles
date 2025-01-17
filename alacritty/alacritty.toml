@@ -9,5 +9,5 @@ bold.family = "Cascadia Code NF"
 italic.family = "Cascadia Code NF"
 bold_italic.family = "Cascadia Code NF"
 
-[terminal]
-shell = { program = "powershell.exe", args = ["-NoLogo"] }
+# [terminal]
+# shell = { program = "powershell.exe", args = ["-NoLogo"] }
