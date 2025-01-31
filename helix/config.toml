@@ -1,0 +1,7 @@
+theme = "dark_plus"
+
+[editor]
+end-of-line-diagnostics = "hint"
+
+[editor.inline-diagnostics]
+cursor-line = "error"

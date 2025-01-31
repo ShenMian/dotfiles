@@ -1,0 +1,18 @@
+[window]
+dimensions.columns = 100
+dimensions.lines = 30
+opacity = 0.85
+dynamic_title = false
+
+[font]
+normal.family = "Cascadia Code NF"
+bold.family = "Cascadia Code NF"
+italic.family = "Cascadia Code NF"
+bold_italic.family = "Cascadia Code NF"
+
+[terminal]
+shell = { program = "powershell.exe", args = [
+    "-NoLogo",
+    "-NoExit",
+    "-Command Set-Location 'D:/Users/sms/Desktop'",
+] }

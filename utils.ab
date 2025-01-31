@@ -1,0 +1,44 @@
+pub fun install_package(package: Text) {
+    $ sudo pacman -S --noconfirm --needed {package} $?
+}
+
+pub fun install_flatpak_package(package: Text) {
+    $ flatpak install -y {package} $?
+}
+
+pub fun install_base_devel() {
+    install_package("base-devel")?
+}
+
+pub fun install_aur_package(package: Text) {
+    $ paru -S --noconfirm --needed {package} $ failed {
+        $ yay -S --noconfirm --needed {package} $?
+    }
+    // Tools in `base-devel` may required for building AUR packages
+    install_base_devel()?
+}
+
+fun install_yay() {
+    $ sudo pacman -S --noconfirm --needed yay $?
+}
+
+fun install_paru() {
+    setup_rust()? // FIXME: function does not exist
+
+    $ git clone --depth 1 https://aur.archlinux.org/paru.git $?
+    $ cd paru $?
+
+    $ makepkg -si $?
+
+    $ cd .. $?
+    $ rm -rf paru $?
+}
+
+pub fun install_aur_helper() {
+    echo "Installing AUR helper"
+    install_yay()?
+
+    // install_paru() failed {
+    //     install_yay()?
+    // }
+}
