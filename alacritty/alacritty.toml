@@ -9,3 +9,4 @@ normal.family = "Cascadia Code NF"
 bold.family = "Cascadia Code NF"
 italic.family = "Cascadia Code NF"
 bold_italic.family = "Cascadia Code NF"
+size = 12.0
