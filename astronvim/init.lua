@@ -16,7 +16,8 @@ if not pcall(require, "lazy") then
 end
 
 -- neovide
-if vim.g.neovide then vim.o.guifont = "Cascadia Code NF:h12" end
+if vim.g.neovide then
+end
 
 require "lazy_setup"
 require "polish"
