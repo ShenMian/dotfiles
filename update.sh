@@ -8,6 +8,9 @@ ln -sf "$PWD/config.fish" ~/.config/fish/config.fish
 # neovim
 ln -sf "$PWD/astronvim" ~/.config/nvim
 
+# neovide
+ln -sf "$PWD/neovide" ~/.config/
+
 # lazygit
 ln -sf "$PWD/lazygit/config.yml" ~/.config/lazygit/config.yml
 
