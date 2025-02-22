@@ -17,6 +17,8 @@ end
 
 -- neovide
 if vim.g.neovide then
+  vim.g.neovide_transparency = 0.95
+  vim.g.neovide_refresh_rate = 144
 end
 
 require "lazy_setup"

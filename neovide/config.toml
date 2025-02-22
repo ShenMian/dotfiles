@@ -1,4 +1,4 @@
-vsync = true
+vsync = false
 
 [font]
 normal = ["Cascadia Code NF"]
