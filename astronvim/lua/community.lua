@@ -22,7 +22,7 @@ return {
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.markdown-and-latex.markview-nvim" },
   { import = "astrocommunity.pack.typst" },
-  -- { import = "astrocommunity.pack.cpp" },
+  { import = "astrocommunity.pack.cpp" },
   -- { import = "astrocommunity.pack.haskell" },
   -- import/override with your plugins folder
 }
