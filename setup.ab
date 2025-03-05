@@ -38,7 +38,7 @@ fun install_flatpak_apps() {
     let development = ["dev.zed.Zed"] // "com.visualstudio.code", "re.rizin.cutter"
     let communication = ["org.telegram.desktop", "im.riot.Riot", "com.qq.QQ", "com.tencent.WeChat"]
     let security = ["com.bitwarden.desktop", "org.kde.kleopatra"]
-    let office = ["org.mozilla.Thunderbird"] // "org.libreoffice.LibreOffice", "com.github.IsmaelMartinez.teams_for_linux"
+    let office = ["org.mozilla.Thunderbird", "org.onlyoffice.desktopeditors"] // "org.libreoffice.LibreOffice", "com.github.IsmaelMartinez.teams_for_linux"
     let multimedia = [Text]
 
     let apps = utilities + browsers + security + communication + development + multimedia + office
