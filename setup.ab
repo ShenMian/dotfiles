@@ -8,7 +8,7 @@ fun setup_mirrors() {
     echo "Setting up mirrors"
 
     // Update mirrorlist with the fastest mirrors
-    $ sudo pacman-mirrors --fasttrack $?
+    $ sudo pacman-mirrors --fasttrack $? // TODO: Manjaro only
     $ sudo pacman -Syu $?
 }
 
@@ -79,16 +79,19 @@ fun setup_input_method() {
     trust $ yay -Y --devel --save $
     // Warning: This step may take a long time
     install_aur_package("rime-ice-git")?
+
+    // https://github.com/iDvel/rime-ice#arch-linux
 }
 
 fun setup_fonts() {
     echo "Installing fonts"
     install_package("otf-cascadia-code")?
+    install_package("adobe-source-han-serif-cn-fonts")?
 }
 
 fun setup_rust() {
     echo "Installing rust"
-    install_package("rust")?
+    install_package("rustup")?
     $ rustup default stable $?
 }
 
