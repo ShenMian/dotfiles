@@ -35,10 +35,10 @@ fun install_flatpak_apps() {
 
     let utilities = ["com.github.tchx84.Flatseal", "org.bleachbit.BleachBit"]
     let browsers = ["com.microsoft.Edge", "org.torproject.torbrowser-launcher"] // "org.mozilla.firefox"
-    let development = ["com.visualstudio.code", "dev.zed.Zed"] // "re.rizin.cutter"
+    let development = ["dev.zed.Zed"] // "com.visualstudio.code", "re.rizin.cutter"
     let communication = ["org.telegram.desktop", "im.riot.Riot", "com.qq.QQ", "com.tencent.WeChat"]
     let security = ["com.bitwarden.desktop", "org.kde.kleopatra"]
-    let office = ["org.mozilla.Thunderbird", "org.libreoffice.LibreOffice"] // "com.github.IsmaelMartinez.teams_for_linux"
+    let office = ["org.mozilla.Thunderbird"] // "org.libreoffice.LibreOffice", "com.github.IsmaelMartinez.teams_for_linux"
     let multimedia = [Text]
 
     let apps = utilities + browsers + security + communication + development + multimedia + office
@@ -67,7 +67,7 @@ fun setup_flatpak_theme() {
 
 fun setup_flatpak_apps() {
     install_flatpak_apps()?
-    setup_flatpak_theme()?
+    // setup_flatpak_theme()?
 }
 
 fun setup_input_method() {
@@ -105,10 +105,14 @@ fun setup_fish_shell() {
 fun setup_packages() {
     echo "Installing packages"
 
-    let packages = [
+    let development = ["visual-studio-code-bin", "neovim", "neovide", "lazygit"]
+    let cli = [
         "fastfetch", "bat", "exa", "fd", "ripgrep", "git-delta",
-        "neovim", "xclip", "nodejs", "lazygit"
+        "neovim", "xclip", "nodejs"
     ]
+    let extra = ["nodejs", "unzip"]
+
+    let packages = development + cli + extra
     for package in packages {
         echo "Installing $package"
         install_package(package)?
