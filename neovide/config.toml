@@ -1,0 +1,5 @@
+vsync = false
+
+[font]
+normal = ["Cascadia Code NF"]
+size = 12.0
