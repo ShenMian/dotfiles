@@ -53,15 +53,12 @@ fun setup_flatpak_theme() {
     
     echo "Setting up flatpak theme"
 
+    // Install dependencies
     $ sudo pacman -S --noconfirm --needed ostree appstream-glib $?
 
     $ git clone --depth 1 https://github.com/refi64/stylepak.git $?
-    $ cd stylepak $?
-
-    // $ ./stylepak install-system $?
-    $ ./stylepak install-user $?
-
-    $ cd .. $?
+    // $ ./stylepak/stylepak install-system $?
+    $ ./stylepak/stylepak install-user $?
     $ rm -rf stylepak $?
 }
 
