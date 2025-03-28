@@ -79,11 +79,7 @@ fun setup_input_method() {
     install_aur_package("rime-ice-git")?
 
     // Enable rime-ice
-    let patch = [
-        "patch:\n"
-        "  __include: rime_ice_suggestion:/\n"
-    ]
-    file_append("$HOME/.local/share/fcitx5/rime/default.custom.yaml", patch)
+    file_append("$HOME/.local/share/fcitx5/rime/default.custom.yaml", "patch:\n  __include: rime_ice_suggestion:/\n")
 }
 
 fun setup_fonts() {
