@@ -1,3 +1,4 @@
+import { file_append } from "std/fs"
 import * from "./utils.ab"
 
 fun get_root() {
@@ -72,12 +73,17 @@ fun setup_input_method() {
     // TODO: Use `install_package`
     $ sudo pacman -S --noconfirm --needed fcitx5 fcitx5-configtool fcitx5-gtk fcitx5-qt fcitx5-rime $?
 
-    // 雾凇拼音
+    // Install rime-ice
     trust $ yay -Y --devel --save $
     // Warning: This step may take a long time
     install_aur_package("rime-ice-git")?
 
-    // https://github.com/iDvel/rime-ice#arch-linux
+    // Enable rime-ice
+    let patch = [
+        "patch:\n"
+        "  __include: rime_ice_suggestion:/\n"
+    ]
+    file_append("$HOME/.local/share/fcitx5/rime/default.custom.yaml", patch)
 }
 
 fun setup_fonts() {
