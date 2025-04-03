@@ -5,14 +5,6 @@ fun get_root() {
     silent $ sudo echo $?
 }
 
-fun setup_mirrors() {
-    echo "Setting up mirrors"
-
-    // Update mirrorlist with the fastest mirrors
-    $ sudo pacman-mirrors --fasttrack $? // TODO: Manjaro only
-    $ sudo pacman -Syu $?
-}
-
 fun setup_git() {
     echo "Setting up git"
 
@@ -51,11 +43,11 @@ fun install_flatpak_apps() {
 
 fun setup_flatpak_theme() {
     install_base_devel()?
-    
+
     echo "Setting up flatpak theme"
 
     // Install dependencies
-    $ sudo pacman -S --noconfirm --needed ostree appstream-glib $?
+    install_packages(["ostree", "appstream-glib"])?
 
     $ git clone --depth 1 https://github.com/refi64/stylepak.git $?
     // $ ./stylepak/stylepak install-system $?
@@ -70,8 +62,7 @@ fun setup_flatpak_apps() {
 
 fun setup_input_method() {
     echo "Installing input method (fcitx5 + rime)"
-    // TODO: Use `install_package`
-    $ sudo pacman -S --noconfirm --needed fcitx5 fcitx5-configtool fcitx5-gtk fcitx5-qt fcitx5-rime $?
+    install_packages(["fcitx5", "fcitx5-configtool", "fcitx5-gtk", "fcitx5-qt", "fcitx5-rime"])?
 
     // Install rime-ice
     trust $ yay -Y --devel --save $
@@ -88,16 +79,10 @@ fun setup_fonts() {
     install_package("adobe-source-han-serif-cn-fonts")?
 }
 
-fun setup_rust() {
-    echo "Installing rust"
-    install_package("rustup")?
-    $ rustup default stable $?
-}
-
 fun setup_fish_shell() {
     echo "Setting up fish shell"
     // TODO: Use `install_package`
-    $ sudo pacman -S --noconfirm --needed fish fisher $?
+    install_packages(["fish", "fisher"])?
 
     echo "Changing default shell to fish"
     let path = $which fish$?
@@ -124,7 +109,6 @@ main {
         fail 1
     }
 
-    // setup_mirrors()?
     setup_git()?
 
     install_aur_helper()?
