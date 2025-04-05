@@ -24,7 +24,7 @@ ln -sf "$PWD/helix" ~/.config/
 ln -sf "$PWD/alacritty" ~/.config/
 
 # ghostty
-# ln -sf "$PWD/ghostty" ~/.config/
+ln -sf "$PWD/ghostty" ~/.config/
 
 # kitty
 # ln -sf "$PWD/kitty" ~/.config/
