@@ -28,11 +28,11 @@ fun install_flatpak_apps() {
 
     let utilities = ["com.github.tchx84.Flatseal", "org.bleachbit.BleachBit"]
     let browsers = ["com.microsoft.Edge", "org.torproject.torbrowser-launcher"] // "org.mozilla.firefox"
-    let development = ["dev.zed.Zed"] // "com.visualstudio.code", "re.rizin.cutter"
+    let development = [Text] // "dev.zed.Zed", "com.visualstudio.code", "re.rizin.cutter"
     let communication = ["org.telegram.desktop", "im.riot.Riot", "com.qq.QQ", "com.tencent.WeChat"]
     let security = ["com.bitwarden.desktop", "org.kde.kleopatra"]
-    let office = ["org.mozilla.Thunderbird", "org.onlyoffice.desktopeditors"] // "org.libreoffice.LibreOffice", "com.github.IsmaelMartinez.teams_for_linux"
-    let multimedia = [Text]
+    let office = ["eu.betterbird.Betterbird", "org.onlyoffice.desktopeditors"] // "org.mozilla.Thunderbird", "org.libreoffice.LibreOffice", "com.github.IsmaelMartinez.teams_for_linux"
+    let multimedia = ["org.gnome.Loupe", "com.github.neithern.g4music"]
 
     let apps = utilities + browsers + security + communication + development + multimedia + office
     for app in apps {
@@ -92,9 +92,9 @@ fun setup_fish_shell() {
 fun setup_packages() {
     echo "Installing packages"
 
-    let neovim = ["neovim", "neovide", "xclip", "ripgrep", "unzip", "nodejs"]
-    let development = ["visual-studio-code-bin"] + neovim
-    let cli = ["fastfetch", "bat", "exa", "fd", "git-delta"]
+    let neovim = ["neovim", "neovide", "ripgrep", "unzip", "nodejs"] -- "xclip"
+    let development = ["visual-studio-code-bin", "zed", "lazygit"] + neovim
+    let cli = ["fastfetch", "bat", "eza", "fd"]
 
     let packages = development + cli
     for package in packages {
