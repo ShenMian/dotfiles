@@ -92,7 +92,7 @@ fun setup_fish_shell() {
 fun setup_packages() {
     echo "Installing packages"
 
-    let neovim = ["neovim", "neovide", "ripgrep", "unzip", "nodejs"] -- "xclip"
+    let neovim = ["neovim", "neovide", "wl-clipboard", "ripgrep", "unzip", "nodejs"] -- "xclip"
     let development = ["visual-studio-code-bin", "zed", "lazygit"] + neovim
     let cli = ["fastfetch", "bat", "eza", "fd"]
 
