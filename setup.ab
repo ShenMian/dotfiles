@@ -26,7 +26,7 @@ fun setup_git() {
 fun install_flatpak_apps() {
     echo "Installing flatpak apps"
 
-    let utilities = ["com.github.tchx84.Flatseal", "org.bleachbit.BleachBit"]
+    let utilities = ["com.github.tchx84.Flatseal"] // "org.bleachbit.BleachBit"
     let browsers = ["com.microsoft.Edge", "org.torproject.torbrowser-launcher"] // "org.mozilla.firefox"
     let development = [Text] // "dev.zed.Zed", "com.visualstudio.code", "re.rizin.cutter"
     let communication = ["org.telegram.desktop", "im.riot.Riot", "com.qq.QQ", "com.tencent.WeChat"]
