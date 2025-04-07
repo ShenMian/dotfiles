@@ -25,6 +25,7 @@ if status is-interactive
 
     # Text viewing/editing aliases
     alias cat 'bat -pp'
+    alias zed zeditor
     alias v nvim
     alias vi neovide
     alias hx helix
