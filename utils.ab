@@ -9,13 +9,16 @@ pub fun install_packages(packages: [Text]): Null? {
 }
 
 pub fun install_flatpak_package(package: Text): Null? {
+    install_package("flatpak")?
+
     $ flatpak install -y {package} $?
 }
 
 pub fun install_aur_package(package: Text): Null? {
-    $ paru -S --noconfirm --needed {package} $?
     // Package `base-devel` is required for building AUR packages
     install_package("base-devel")?
+
+    $ paru -S --noconfirm --needed {package} $?
 }
 
 fun install_rust() {
