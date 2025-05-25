@@ -1,0 +1,42 @@
+pub fun install_package(package: Text): Null? {
+    $ sudo pacman -S --noconfirm --needed {package} $?
+}
+
+pub fun install_packages(packages: [Text]): Null? {
+    for package in packages {
+        $ sudo pacman -S --noconfirm --needed {packages} $?
+    }
+}
+
+pub fun install_flatpak_package(package: Text): Null? {
+    install_package("flatpak")?
+
+    $ flatpak install -y {package} $?
+}
+
+pub fun install_aur_package(package: Text): Null? {
+    // Package `base-devel` is required for building AUR packages
+    install_package("base-devel")?
+
+    $ paru -S --noconfirm --needed {package} $?
+}
+
+fun install_rust() {
+    install_package("rustup")?
+    $ rustup default stable $?
+}
+
+fun install_paru() {
+    install_rust()?
+
+    $ git clone --depth 1 https://aur.archlinux.org/paru.git $?
+    $ cd paru $?
+    $ makepkg -si $?
+    $ cd .. $?
+    $ rm -rf paru $?
+}
+
+pub fun install_aur_helper() {
+    echo "Installing AUR helper"
+    install_paru()?
+}

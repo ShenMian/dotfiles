@@ -1,0 +1,123 @@
+import { file_append } from "std/fs"
+import * from "./utils.ab"
+
+fun get_root() {
+    silent $ sudo echo $?
+}
+
+fun setup_git() {
+    echo "Setting up git"
+
+    $ git config --global user.name "ShenMian" $?
+    $ git config --global user.email "sms_school@outlook.com" $?
+
+    $ git config --global init.defaultBranch main $?
+    $ git config --global pull.rebase true $?
+
+    install_package("github-cli")?
+
+    // Warning: Human intervention required
+    $ gh auth login $?
+    $ gh auth setup-git $?
+
+    $ gh extension install github/gh-copilot $?
+}
+
+fun install_flatpak_apps() {
+    echo "Installing flatpak apps"
+
+    let utilities = ["com.github.tchx84.Flatseal"] // "org.bleachbit.BleachBit"
+    let browsers = ["com.microsoft.Edge", "org.torproject.torbrowser-launcher"] // "org.mozilla.firefox"
+    let development = [Text] // "dev.zed.Zed", "com.visualstudio.code", "re.rizin.cutter"
+    let communication = ["org.telegram.desktop", "im.riot.Riot", "com.qq.QQ", "com.tencent.WeChat"]
+    let security = ["com.bitwarden.desktop", "org.kde.kleopatra"]
+    let office = ["eu.betterbird.Betterbird", "org.onlyoffice.desktopeditors"] // "org.mozilla.Thunderbird", "org.libreoffice.LibreOffice", "com.github.IsmaelMartinez.teams_for_linux"
+    let multimedia = ["org.gnome.Loupe", "com.github.neithern.g4music"]
+
+    let apps = utilities + browsers + security + communication + development + multimedia + office
+    for app in apps {
+        echo "Installing {app}"
+        install_flatpak_package(app)?
+    }
+}
+
+fun setup_flatpak_theme() {
+    install_base_devel()?
+
+    echo "Setting up flatpak theme"
+
+    // Install dependencies
+    install_packages(["ostree", "appstream-glib"])?
+
+    $ git clone --depth 1 https://github.com/refi64/stylepak.git $?
+    // $ ./stylepak/stylepak install-system $?
+    $ ./stylepak/stylepak install-user $?
+    $ rm -rf stylepak $?
+}
+
+fun setup_flatpak_apps() {
+    install_flatpak_apps()?
+    // setup_flatpak_theme()?
+}
+
+fun setup_input_method() {
+    echo "Installing input method (fcitx5 + rime)"
+    install_packages(["fcitx5", "fcitx5-configtool", "fcitx5-gtk", "fcitx5-qt", "fcitx5-rime"])?
+
+    // Install rime-ice
+    trust $ yay -Y --devel --save $
+    // Warning: This step may take a long time
+    install_aur_package("rime-ice-git")?
+
+    // Enable rime-ice
+    file_append("$HOME/.local/share/fcitx5/rime/default.custom.yaml", "patch:\n  __include: rime_ice_suggestion:/\n")
+}
+
+fun setup_fonts() {
+    echo "Installing fonts"
+    install_package("otf-cascadia-code")?
+    install_package("adobe-source-han-serif-cn-fonts")?
+}
+
+fun setup_fish_shell() {
+    echo "Setting up fish shell"
+    // TODO: Use `install_package`
+    install_packages(["fish", "fisher"])?
+
+    echo "Changing default shell to fish"
+    let path = $which fish$?
+    $ chsh -s {path} $?
+}
+
+fun setup_packages() {
+    echo "Installing packages"
+
+    let mason = ["unzip", "nodejs", "npm"]
+    let neovim = ["neovim", "neovide", "wl-clipboard", "ripgrep"] + mason -- "xclip"
+    let development = ["visual-studio-code-bin", "zed", "lazygit"] + neovim
+    let cli = ["fastfetch", "bat", "eza", "fd"]
+
+    let packages = development + cli
+    for package in packages {
+        echo "Installing $package"
+        install_package(package)?
+    }
+}
+
+main {
+    get_root() failed {
+        echo "Please run this script as root"
+        fail 1
+    }
+
+    setup_git()?
+
+    install_aur_helper()?
+
+    setup_fonts()?
+    setup_input_method()?
+    setup_fish_shell()?
+
+    setup_flatpak_apps()?
+    setup_packages()?
+}
