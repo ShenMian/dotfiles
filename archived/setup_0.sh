@@ -32,14 +32,14 @@ killall clash
 systemctl --user enable clash --now
 sleep 3
 
-export http_proxy='http://127.0.0.1:7890/'
-export https_proxy='http://127.0.0.1:7890/'
+export http_proxy='http://127.0.0.1:7897/'
+export https_proxy='http://127.0.0.1:7897/'
 
 # git
 echo "Setup git"
 git config --global core.editor 'nvim'
-git config --global http.proxy 'http://127.0.0.1:7890'
-git config --global https.proxy 'http://127.0.0.1:7890'
+git config --global http.proxy 'http://127.0.0.1:7897'
+git config --global https.proxy 'http://127.0.0.1:7897'
 
 # font
 echo "Setup font"

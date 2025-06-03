@@ -233,7 +233,7 @@ main()
   need_cmd clash
 
   local url="<url>"
-  local port=7890
+  local port=7897
 
   if [ -z "$1" ]; then
     clash_start $port

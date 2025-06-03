@@ -40,10 +40,10 @@ source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 ### Environment
 
-# export ALL_PROXY='http://127.0.0.1:7890/'
-export all_proxy='http://127.0.0.1:7890/'
-# export http_proxy='http://127.0.0.1:7890/'
-# export https_proxy='http://127.0.0.1:7890/'
+# export ALL_PROXY='http://127.0.0.1:7897/'
+export all_proxy='http://127.0.0.1:7897/'
+# export http_proxy='http://127.0.0.1:7897/'
+# export https_proxy='http://127.0.0.1:7897/'
 
 export VISUAL='nvim'
 export EDITOR='nvim'
