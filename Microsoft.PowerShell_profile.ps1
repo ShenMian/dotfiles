@@ -9,36 +9,42 @@ Set-PSReadlineOption -ShowToolTips
 
 ### Environment
 
-# $Env:http_proxy = "127.0.0.1:7897"
-# $Env:https_proxy = "127.0.0.1:7897"
+$Env:all_proxy = "127.0.0.1:7897"
+$Env:http_proxy = "127.0.0.1:7897"
+$Env:https_proxy = $Env:http_proxy
+$Env:no_proxy = "localhost,127.0.0.0/8,::1"
 
 ### Alias
 
 Set-Alias -Name c -Value clear
 
-# bat
-if (Get-Command bat -ErrorAction SilentlyContinue) {
-    Set-Alias -Name cat -Value bat -Option AllScope
-}
-
 # eza
 if (Get-Command eza -ErrorAction SilentlyContinue) {
     Set-Alias -Name ls -Value eza -Option AllScope
-    function ll { eza -la @args }
+    Set-Alias -Name l -Value eza -Option AllScope
+    function ll { eza --long --icons @args }
+    function tree { eza --tree @args }
 }
 
-# neovim
-Set-Alias -Name v -Value nvim
+# bat
+if (Get-Command bat -ErrorAction SilentlyContinue) {
+    function cat { bat -pp @args }
+}
 
-# neovide
+# editors
+Set-Alias -Name v -Value nvim
 Set-Alias -Name vi -Value neovide
+Set-Alias -Name hx -Value helix -Option AllScope
 
 # lazygit
 Set-Alias -Name lg -Value lazygit
 
 # scoop-search
-Invoke-Expression (&scoop-search --hook)
+if (Get-Command scoop-search -ErrorAction SilentlyContinue) {
+    Invoke-Expression (&scoop-search --hook)
+}
 
 ### Prompt
-
-Invoke-Expression (&starship init powershell)
+if (Get-Command starship -ErrorAction SilentlyContinue) {
+    Invoke-Expression (&starship init powershell)
+}
