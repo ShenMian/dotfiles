@@ -1,13 +1,4 @@
-### PowerShell
-
-Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
-Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
-Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
-
-Set-PSReadlineOption -HistorySearchCursorMovesToEnd
-Set-PSReadlineOption -ShowToolTips
-
-### Environment
+## Proxy
 
 function Set-Proxy {
     $PROXY_SERVER = "127.0.0.1:7897"
@@ -23,8 +14,9 @@ function Unset-Proxy {
 
 Set-Proxy
 
-### Alias
+## Alias
 
+# Utility aliases
 Set-Alias -Name c -Value clear
 
 # eza
@@ -40,9 +32,12 @@ if (Get-Command bat -ErrorAction SilentlyContinue) {
     function cat { bat -pp @args }
 }
 
+# Editor aliases
 Set-Alias -Name v -Value nvim
 Set-Alias -Name vi -Value neovide
 Set-Alias -Name hx -Value helix -Option AllScope
+
+# Tool aliases
 Set-Alias -Name lg -Value lazygit
 Set-Alias -Name youtube -Value yt-dlp -Option AllScope
 
@@ -51,7 +46,16 @@ if (Get-Command scoop-search -ErrorAction SilentlyContinue) {
     Invoke-Expression (&scoop-search --hook)
 }
 
-### Prompt
+## PowerShell
+
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
+Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
+
+Set-PSReadlineOption -HistorySearchCursorMovesToEnd
+Set-PSReadlineOption -ShowToolTips
+
+## Prompt
 
 if (Get-Command starship -ErrorAction SilentlyContinue) {
     Invoke-Expression (&starship init powershell)
