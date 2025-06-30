@@ -34,7 +34,7 @@ set -Ux VISUAL nvim
 set -Ux EDITOR nvim
 set -Ux MANPAGER "nvim +Man!"
 
-set -Ux GPG_TTY (tty)
+set -gx GPG_TTY (tty)
 
 fish_add_path -Ua "$HOME/.cargo/bin/"
 
