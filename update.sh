@@ -37,4 +37,3 @@ ln -sf "$PWD/ghostty" ~/.config/
 
 # zsh
 # ln -sf "$PWD/.zshrc" ~/.zshrc
-
