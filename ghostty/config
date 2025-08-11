@@ -1,7 +1,13 @@
 font-family = Cascadia Code NF
 font-size = 12
 
+theme = "Builtin Tango Dark"
+
+window-padding-x = 0
+window-padding-y = 0
+window-padding-color = extend
 background-opacity = 0.85
+window-decoration = client
 
 cursor-color = #52ad70
 cursor-style = block

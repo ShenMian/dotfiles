@@ -38,6 +38,10 @@ set -Ux MANPAGER "nvim +Man!"
 
 set -gx GPG_TTY (tty)
 
+set -gx OPENAI_API_KEY "sk-39809bcdf1314e2c8b7ff2835562eae3"
+set -gx OPENAI_BASE_URL "https://dashscope.aliyuncs.com/compatible-mode/v1"
+set -gx OPENAI_MODEL "qwen3-coder-plus"
+
 fish_add_path -Ua "$HOME/.cargo/bin/"
 
 if status is-interactive
