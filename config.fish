@@ -32,8 +32,8 @@ set_proxy
 
 # set -x TERM xterm-256color
 
-set -Ux VISUAL nvim
-set -Ux EDITOR nvim
+set -Ux VISUAL "nvim"
+set -Ux EDITOR "nvim"
 set -Ux MANPAGER "nvim +Man!"
 
 set -gx GPG_TTY (tty)
