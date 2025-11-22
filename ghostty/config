@@ -1,0 +1,22 @@
+font-family = "Cascadia Code NF"
+font-size = 12
+
+theme = "Builtin Tango Dark"
+
+window-padding-x = 0
+window-padding-y = 0
+window-padding-color = extend
+background-opacity = 0.85
+# window-decoration = client
+
+cursor-color = #52ad70
+cursor-style = block
+cursor-style-blink = false
+
+# BUG: On Linux with GTK, the calculated window size will not properly take into account window decorations. As a result, the grid dimensions will not exactly match this configuration. If window decorations are disabled (see window-decorations), then this will work as expected.
+window-width = 100
+window-height = 30
+
+shell-integration = fish
+shell-integration-features = no-cursor
+

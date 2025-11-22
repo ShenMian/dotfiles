@@ -1,0 +1,156 @@
+import { dir_create, file_append, file_exists, file_write } from "std/fs"
+import { echo_info, echo_success, echo_warning, echo_error, env_const_get } from "std/env"
+import * from "./utils.ab"
+
+fun get_root() {
+    silent $ sudo echo $?
+}
+
+fun setup_git() {
+    echo_info("Setting up git")
+
+    $ git config --global user.name "ShenMian" $?
+    $ git config --global user.email "sms_school@outlook.com" $?
+
+    $ git config --global init.defaultBranch main $?
+    $ git config --global pull.rebase true $?
+
+    install_package("github-cli")?
+
+    // echo_warning("Human intervention required")
+    // $ gh auth login $?
+    // $ gh auth setup-git $?
+
+    $ gh extension install github/gh-copilot $?
+
+    echo_success("Successed")
+}
+
+fun setup_flatpak_theme() {
+    echo_info("Setting up flatpak theme")
+
+    // Install dependencies
+    install_packages(["ostree", "appstream-glib"])?
+
+    $ git clone --depth 1 https://github.com/refi64/stylepak.git $?
+    // $ ./stylepak/stylepak install-system $?
+    $ ./stylepak/stylepak install-user $?
+    $ rm -rf stylepak $?
+
+    echo_success("Successed")
+}
+
+fun setup_flatpak_apps() {
+    echo_info("Installing flatpak apps")
+
+    let utilities = ["com.github.tchx84.Flatseal"] // "org.bleachbit.BleachBit"
+    let browsers = ["com.microsoft.Edge", "org.torproject.torbrowser-launcher"] // "org.mozilla.firefox"
+    let development = [Text] // "dev.zed.Zed", "com.visualstudio.code", "re.rizin.cutter"
+    let communication = ["com.qq.QQ", "com.tencent.WeChat"] // "org.telegram.desktop", "im.riot.Riot"
+    let security = ["com.bitwarden.desktop", "org.kde.kleopatra"]
+    let office = ["eu.betterbird.Betterbird", "org.onlyoffice.desktopeditors"] // "org.mozilla.Thunderbird", "org.libreoffice.LibreOffice", "com.github.IsmaelMartinez.teams_for_linux"
+    let multimedia = ["org.gnome.Loupe", "com.github.neithern.g4music"]
+
+    let apps = utilities + browsers + security + communication + development + multimedia + office
+    for app in apps {
+        echo_info("Installing {app}")
+        install_flatpak_package(app)?
+    }
+
+    echo_success("Successed")
+}
+
+fun setup_input_method() {
+    echo_info("Installing input method (fcitx5 + rime)")
+    install_packages(["fcitx5", "fcitx5-configtool", "fcitx5-gtk", "fcitx5-qt", "fcitx5-rime"])?
+
+    // Install rime-ice
+    echo_info("Install rime-ice")
+    trust $ yay -Y --devel --save $
+    echo_warning("This step may take a long time")
+    install_aur_package("rime-ice-git")?
+
+    // Enable rime-ice
+    echo_info("Enable rime-ice")
+    let home = env_const_get("HOME")?
+    let config_dir_path = "{home}/.local/share/fcitx5/rime"
+    trust dir_create(config_dir_path)
+    let config_file_path = "{config_dir_path}/default.custom.yaml"
+    if not file_exists(config_file_path) {
+        file_write(config_file_path, "patch:\n  __include: rime_ice_suggestion:/\n")?
+    } else {
+        echo_warning("SKIP: {config_file_path} already exists")
+    }
+
+    echo_success("Successed")
+}
+
+fun setup_fonts() {
+    echo_info("Installing fonts")
+    install_package("noto-fonts-cjk")?
+    install_package("otf-cascadia-code")?
+    install_package("adobe-source-han-serif-cn-fonts")?
+
+    echo_success("Successed")
+}
+
+fun setup_fish_shell() {
+    echo_info("Setting up fish shell")
+    install_packages(["fish", "fisher"])?
+
+    echo_info("Changing default shell to fish")
+    let path = $ which fish $?
+    echo_warning("Human intervention required")
+    $ chsh -s {path} $?
+
+    echo_success("Successed")
+}
+
+fun setup_packages() {
+    echo_info("Installing packages")
+
+    let mason = ["unzip", "nodejs", "npm"]
+    let neovim = ["neovim", "wl-clipboard", "ripgrep"] + mason
+    let development = ["zed", "lazygit"] + neovim
+    let cli = ["fastfetch", "bat", "eza", "fd"]
+
+    let packages = development + cli
+    for package in packages {
+        echo_info("Installing $package")
+        install_package(package)?
+    }
+
+    echo_success("Successed")
+}
+
+fun setup_aur_packages() {
+    echo_info("Installing AUR packages")
+    let development = ["visual-studio-code-bin"]
+    let packages = development
+    for package in packages {
+        echo_info("Installing $package")
+        install_aur_package(package)?
+    }
+
+    echo_success("Successed")
+}
+
+main {
+    get_root() failed {
+        echo_error("Failed to obtain root permissions")
+        fail 1
+    }
+
+    // setup_git()?
+
+    // install_aur_helper()?
+
+    setup_fonts()?
+    setup_input_method()?
+    setup_fish_shell()?
+
+    // setup_flatpak_apps()?
+    setup_packages()?
+
+    echo_success("Done")
+}

@@ -1,0 +1,131 @@
+[options]
+  colorscheme = "gruvbox"              # 多的主题, 你可以载入 colorscheme 模块. 默认为 "gruvbox"
+  colorscheme_bg = "dark"              # 背景可以取值 "dark" 或 "light"
+  enable_guicolors = true              # 启用/禁用终端真彩色, 在目前大多数终端下都是支持真彩色的, 当然也有一小部分终端不支持真彩色,
+                                       # 如果你的 SpaceVim 颜色看上去比较怪异可以禁用终端真彩色
+  statusline_separator = "arrow"       # 设置状态栏上分割符号形状, 如果字体安装失败, 可以将值设为 "nil" 以禁用分割符号, 默认为 "arrow"
+  statusline_iseparator = "bar"
+  buffer_index_type = 4                # 设置顶部标签列表序号类型, 有以下五种类型, 分别是 0 - 4
+                                       # 0: ➊, 1: ➀, 2: ⓵, 3: ¹, 4: 1
+  enable_tabline_filetype_icon = true  # 显示/隐藏顶部标签栏上的文件类型图标, 这一图标需要安装 nerd fonts, 如果未能成功安装这一字体, 可以隐藏图标
+  enable_statusline_mode = false       # 是否在状态栏上显示当前模式, 默认情况下, 不显示 Normal/Insert 等字样, 只以颜色区分当前模式
+  statusline_unicode = false
+  enable_filetree_gitstatus = true     # 文件树是否显示 git 状态
+  # vimcompatible = true
+
+  disabled_plugins = ["nvim-lspconfig", "tagbar-markdown"] # 屏蔽 SpaceVim 内部错误
+  autocomplete_method = "coc"          # coc, deoplete, asyncomplete, completor, ycm(YouCompleteMe), neocomplcache
+
+###########
+# Plugins #
+###########
+
+# Terminal
+[[layers]]
+  name = 'shell'
+  default_position = 'bottom'
+  default_height = 30
+
+# Git
+[[layers]]
+  name = 'git'
+[[layers]]
+  name = "VersionControl"
+
+# Github
+[[layers]]
+  name = "github"
+
+# Language Server Protocol
+[[layers]]
+  name = 'lsp' # Still enable lsp layer
+[[custom_plugins]]
+  name = 'neovim/nvim-lspconfig'
+
+# autocomplete
+[[layers]]
+  name = 'autocomplete'
+  auto_completion_return_key_behavior = "complete"
+  auto_completion_tab_key_behavior = "smart" # complete, smart
+
+# Tags
+[[layers]]
+  name = "gtags"
+  gtagslabel = "pygments"
+
+# Fuzzy file finder
+[[layers]]
+  name = 'leaderf'
+
+###########
+# Customs #
+###########
+
+# Nerdtree git status
+# https://github.com/Xuyuanp/nerdtree-git-plugin
+[[custom_plugins]]
+  name = "Xuyuanp/nerdtree-git-plugin"
+
+# vimspector
+# https://github.com/puremourning/vimspector
+[[custom_plugins]]
+  name = 'puremourning/vimspector'
+
+# Leetcode
+# https://github.com/ianding1/leetcode.vim
+[[custom_plugins]]
+  name = "ianding1/leetcode.vim"
+  on_cmd = ['LeetCodeList', 'LeetCodeTest', 'LeetCodeSubmit', 'LeetCodeSignIn']
+
+#########
+# Theme #
+#########
+
+# PaperColor
+# [[custom_plugins]]
+#   repo = 'NLKNguyen/papercolor-theme'
+#   merged = false
+
+#############
+# Languages #
+#############
+
+# Markdown
+[[layers]]
+  name = "lang#markdown"
+
+# C/C++
+[[layers]]
+  name = 'lang#c'
+  # enable_clang_syntax_highlight = true
+  # clang_executable = "/usr/bin/clang"
+  [layer.clang_std]
+    c = "c11"
+    cpp = "c++20"
+    objc = "c11"
+    objcpp = "c++20"
+
+[[layers]]
+  name = 'lsp'
+  filetypes = ["c", "cpp"]
+  # enabled_clients = ['clangd']
+  # [layers.override_cmd]
+  #   c = ["clangd"]
+  #   cpp = ["clangd"]
+
+# CMake
+[[layers]]
+  name = 'lang#cmake'
+
+# Rust
+[[layers]]
+  name = "lang#rust"
+[[layers]]
+  name = "lsp"
+  filetypes = ["rust"]
+  [layers.override_cmd]
+    rust = ["rust-analyzer"]
+
+# # JS
+[[layers]]
+  name = 'lang#javascript'

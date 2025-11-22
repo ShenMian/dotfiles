@@ -1,0 +1,12 @@
+[window]
+dimensions.columns = 100
+dimensions.lines = 30
+opacity = 0.9
+dynamic_title = false
+
+[font]
+normal.family = "Cascadia Code NF"
+bold.family = "Cascadia Code NF"
+italic.family = "Cascadia Code NF"
+bold_italic.family = "Cascadia Code NF"
+size = 12.0

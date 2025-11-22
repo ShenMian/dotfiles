@@ -1,0 +1,14 @@
+theme = "dark_plus"
+
+[editor]
+cursorline = true
+lsp.display-inlay-hints = true
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
+
+[keys.insert]
+j = { k = "normal_mode" }
+
+[keys.normal]
+"ret" = "goto_word"
