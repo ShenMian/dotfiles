@@ -69,3 +69,6 @@ if status is-interactive
     alias youtube="yt-dlp"
     alias open="xdg-open"
 end
+
+# Force standard key bindings (overrides implicit Vi mode from EDITOR=nvim)
+fish_default_key_bindings
