@@ -1,24 +1,36 @@
-[environment]::setEnvironmentVariable('SCOOP', 'D:\apps\scoop', 'User')
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+function Install-Scoop {
+    if (Get-Command scoop -ErrorAction SilentlyContinue) {
+        return
+    }
 
-scoop install git sudo 7zip dark innounp
+    [environment]::setEnvironmentVariable('SCOOP', 'D:\apps\scoop', 'User')
+    $env:SCOOP = 'D:\apps\scoop'
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+    Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 
-scoop bucket add extras nerd-fonts
+    # Install basic packages
+    scoop install git sudo 7zip dark innounp
 
-$font = @("cascadia-code")
-$utilities = @("everything")
+    # Add basic buckets
+    foreach ($bucket in @("main", "extras", "nerd-fonts", "java")) {
+        scoop bucket add $bucket
+    }
+}
+
+Install-Scoop
+
+$fonts = @("cascadia-code", "source-han-serif-sc")
+$utilities = @("everything", "caesium-image-compressor", "exifcleaner", "yt-dlp")
 $security = @("bitwarden")
-$communication = @("telegram", "element", "wechat")
-$development = @("vscode", "neovim", "rustup", "gh")
+$communication = @("telegram", "wechat")
+$development = @("rustup", "gh", "godot")
 
-$apps = $font + $utilities + $security + $communication + $development
+$apps = $fonts + $utilities + $security + $communication + $development
 
 foreach ($app in $apps) {
-    scoop install $package
+    scoop install $app
 }
 
 gh auth login
 gh auth setup-git
 gh extension install github/gh-copilot
-
