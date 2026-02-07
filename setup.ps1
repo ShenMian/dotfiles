@@ -34,9 +34,7 @@ $utilities = @("everything", "caesium-image-compressor", "exifcleaner", "yt-dlp"
 $security = @("bitwarden")
 $communication = @("telegram", "wechat")
 $development = @("rustup", "gh", "godot")
-
 $apps = $fonts + $utilities + $security + $communication + $development
-
 Scoop-Install $apps
 
 gh auth login
