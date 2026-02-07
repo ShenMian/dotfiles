@@ -1,3 +1,13 @@
+function Scoop-Install {
+    param (
+        [Parameter(Position = 0, Mandatory=$true)]
+        [string[]]$Apps
+    )
+    foreach ($app in $Apps) {
+        scoop install $app
+    }
+}
+
 function Install-Scoop {
     if (Get-Command scoop -ErrorAction SilentlyContinue) {
         return
@@ -9,7 +19,7 @@ function Install-Scoop {
     Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 
     # Install basic packages
-    scoop install git sudo 7zip dark innounp
+    Scoop-Install @("git", "sudo", "7zip", "dark", "innounp")
 
     # Add basic buckets
     foreach ($bucket in @("main", "extras", "nerd-fonts", "java")) {
@@ -27,9 +37,7 @@ $development = @("rustup", "gh", "godot")
 
 $apps = $fonts + $utilities + $security + $communication + $development
 
-foreach ($app in $apps) {
-    scoop install $app
-}
+Scoop-Install $apps
 
 gh auth login
 gh auth setup-git
