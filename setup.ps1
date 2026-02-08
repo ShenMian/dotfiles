@@ -40,7 +40,7 @@ $development = @("rustup", "gh", "scc", "godot", "lazygit", "github", "git-cliff
 
 $fonts = @("cascadia-code", "source-han-serif-sc")
 $security = @("bitwarden", "gpg4win")
-$system = @("alacritty", "bleachbit", "everything", "filelight", "ruff", "ventoy") + $fonts + $security
+$system = @("alacritty", "bleachbit", "everything", "filelight", "rufus", "ventoy") + $fonts + $security
 
 $utilities = @("eza", "bat", "fd", "ripgrep", "fastfetch", "scc", "starship", "fzf", "btop")
 
