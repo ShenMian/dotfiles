@@ -31,10 +31,10 @@ Install-Scoop
 
 $productivity = @("typst", "libreoffice", "zotero", "stirling-pdf") # onlyoffice-desktopeditors, readest, anytype
 $multimedia = @("caesium-image-compressor", "exifcleaner", "obs-studio", "yt-dlp", "ffmpeg", "inkscape") # potplayer, kdenlive, krita, imagemagick
-$networking = @("telegram", "localsend", "magic-wormhole-rs") # element, kdeconnect (signal 支持自更新)
+$networking = @("telegram", "localsend", "magic-wormhole-rs", "qbittorrent") # element, kdeconnect (signal 支持自更新)
 
 $container = @("podman", "kubectl", "minikube")
-$cpp = @("llvm", "clangd", "cmake", "ninja", "vcpkg", "doxygen")
+$cpp = @("clangd", "llvm", "cmake", "ninja", "vcpkg", "doxygen")
 $reverse = @("ghidra", "ida-free", "cutter", "x64dbg", "cheat-engine", "wireshark")
 $compression = @("upx", "zstd")
 $development = @("rustup", "python", "openjdk", "gh", "scc", "godot", "lazygit", "github", "git-cliff") + $compression
