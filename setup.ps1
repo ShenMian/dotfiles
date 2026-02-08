@@ -19,7 +19,7 @@ function Install-Scoop {
     Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 
     # Install basic packages
-    Scoop-Install @("git", "sudo", "7zip", "dark", "innounp")
+    Scoop-Install @("git", "sudo", "7zip", "dark", "innounp", "innounp-unicode")
 
     # Add basic buckets
     foreach ($bucket in @("main", "extras", "nerd-fonts", "java")) {
@@ -29,12 +29,22 @@ function Install-Scoop {
 
 Install-Scoop
 
+$productivity = @("typst", "libreoffice", "zotero", "stirling-pdf") # onlyoffice-desktopeditors, readest, anytype
+$multimedia = @("caesium-image-compressor", "exifcleaner", "obs-studio", "yt-dlp", "ffmpeg", "inkscape") # potplayer, kdenlive, krita, imagemagick
+$networking = @("telegram", "wechat", "localsend", "magic-wormhole-rs") # element, kdeconnect (signal 支持自更新)
+
+$cpp = @("llvm", "cmake", "ninja", "vcpkg", "doxygen")
+$reverse = @("ghidra", "ida-free", "cutter", "x64dbg", "cheat-engine", "wireshark")
+$compression = @("upx", "zstd")
+$development = @("rustup", "gh", "scc", "godot", "lazygit", "github", "git-cliff", "python") + $compression
+
 $fonts = @("cascadia-code", "source-han-serif-sc")
-$utilities = @("everything", "caesium-image-compressor", "exifcleaner", "yt-dlp")
-$security = @("bitwarden")
-$communication = @("telegram", "wechat")
-$development = @("rustup", "gh", "godot")
-$apps = $fonts + $utilities + $security + $communication + $development
+$security = @("bitwarden", "gpg4win")
+$system = @("alacritty", "bleachbit", "everything", "filelight", "ruff", "ventoy") + $fonts + $security
+
+$utilities = @("eza", "bat", "fd", "ripgrep", "fastfetch", "scc", "starship", "fzf", "btop")
+
+$apps = $productivity + $multimedia + $networking + $development + $system + $utilities
 Scoop-Install $apps
 
 gh auth login
