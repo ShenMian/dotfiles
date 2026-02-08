@@ -31,18 +31,19 @@ Install-Scoop
 
 $productivity = @("typst", "libreoffice", "zotero", "stirling-pdf") # onlyoffice-desktopeditors, readest, anytype
 $multimedia = @("caesium-image-compressor", "exifcleaner", "obs-studio", "yt-dlp", "ffmpeg", "inkscape") # potplayer, kdenlive, krita, imagemagick
-$networking = @("telegram", "wechat", "localsend", "magic-wormhole-rs") # element, kdeconnect (signal 支持自更新)
+$networking = @("telegram", "localsend", "magic-wormhole-rs") # element, kdeconnect (signal 支持自更新)
 
-$cpp = @("llvm", "cmake", "ninja", "vcpkg", "doxygen")
+$container = @("podman", "kubectl", "minikube")
+$cpp = @("llvm", "clangd", "cmake", "ninja", "vcpkg", "doxygen")
 $reverse = @("ghidra", "ida-free", "cutter", "x64dbg", "cheat-engine", "wireshark")
 $compression = @("upx", "zstd")
-$development = @("rustup", "gh", "scc", "godot", "lazygit", "github", "git-cliff", "python") + $compression
+$development = @("rustup", "python", "openjdk", "gh", "scc", "godot", "lazygit", "github", "git-cliff") + $compression
 
 $fonts = @("cascadia-code", "source-han-serif-sc")
 $security = @("bitwarden", "gpg4win")
 $system = @("alacritty", "bleachbit", "everything", "filelight", "rufus", "ventoy") + $fonts + $security
 
-$utilities = @("eza", "bat", "fd", "ripgrep", "fastfetch", "scc", "starship", "fzf", "btop")
+$utilities = @("eza", "bat", "fd", "ripgrep", "fastfetch", "scc", "starship", "btop")
 
 $apps = $productivity + $multimedia + $networking + $development + $system + $utilities
 Scoop-Install $apps
