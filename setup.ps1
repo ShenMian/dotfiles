@@ -18,13 +18,13 @@ function Install-Scoop {
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
     Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 
-    # Install basic packages
-    Scoop-Install @("git", "sudo", "7zip", "dark", "innounp", "innounp-unicode")
+    Scoop-Install @("git", "sudo", "7zip", "dark", "innounp")
 
-    # Add basic buckets
-    foreach ($bucket in @("main", "extras", "nerd-fonts", "java")) {
+    foreach ($bucket in @("extras", "versions", "nerd-fonts", "java")) {
         scoop bucket add $bucket
     }
+
+    Scoop-Install @("innounp-unicode")
 }
 
 Install-Scoop
