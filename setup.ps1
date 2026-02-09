@@ -1,4 +1,4 @@
-function Scoop-Install {
+function Install-ScoopApp {
     param (
         [Parameter(Position = 0, Mandatory=$true)]
         [string[]]$Apps
@@ -10,6 +10,7 @@ function Scoop-Install {
 
 function Install-Scoop {
     if (Get-Command scoop -ErrorAction SilentlyContinue) {
+        Write-Host "Scoop is already installed. Skipping..." -ForegroundColor Yellow
         return
     }
 
@@ -18,13 +19,13 @@ function Install-Scoop {
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
     Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 
-    Scoop-Install @("git", "sudo", "7zip", "dark", "innounp")
+    Install-ScoopApp @("git")
 
     foreach ($bucket in @("extras", "versions", "nerd-fonts", "java")) {
         scoop bucket add $bucket
     }
 
-    Scoop-Install @("innounp-unicode")
+    Install-ScoopApp @("sudo", "7zip", "dark", "innounp-unicode")
 }
 
 Install-Scoop
@@ -46,7 +47,7 @@ $system = @("alacritty", "bleachbit", "everything", "filelight", "rufus", "vento
 $utilities = @("eza", "bat", "fd", "ripgrep", "fastfetch", "scc", "starship", "btop")
 
 $apps = $productivity + $multimedia + $networking + $development + $system + $utilities
-Scoop-Install $apps
+Install-ScoopApp $apps
 
 gh auth login
 gh auth setup-git
