@@ -1,2 +1,89 @@
+# Reference: https://github.com/IlanCosman/tide/blob/main/functions/tide/configure/configs/lean.fish
+
+add_newline = false
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$line_break\
+$character"""
+
+right_format = """
+$status\
+$cmd_duration\
+$username\
+$hostname\
+$jobs\
+$rust"""
+
+[character]
+success_symbol = "[❯](bold #5FAF00)"
+error_symbol = "[❯](bold #FF0000)"
+
+[directory]
+style = "#0087AF"
+read_only_style = "#8787AF"
+truncation_length = 3
+truncate_to_repo = true
+read_only = " "
+
+[git_branch]
+format = "[$branch(:$remote_branch)]($style) "
+style = "#5FAF00"
+truncation_length = 24
+truncation_symbol = "…"
+
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+style = ""
+ahead = "[⇡$count](bold #5FAF00)"
+behind = "[⇣$count](bold #5FAF00)"
+stashed = "[*$count](#5FAF00)"
+conflicted = "[~$count](#FF0000)"
+staged = "[+$count](#D7AF00)"
+modified = "[!$count](#D7AF00)"
+untracked = "[?$count](#5F87D7)"
+deleted = "[✘$count](#FF0000)"
+
+[status]
+disabled = false
+format = "[$symbol$status]($style) "
+symbol = "✘ "
+success_symbol = ""
+not_executable_symbol = "✘ "
+not_found_symbol = "✘ "
+sigint_symbol = "✘ "
+signal_symbol = "✘ "
+style = "#D70000"
+map_symbol = false
+
+[cmd_duration]
+format = "[$duration]($style) "
+style = "#87875F"
+min_time = 3000
+
+[rust]
+format = "[ $version]($style) "
+style = "#F74C00"
+detect_files = ["Cargo.toml"]
+
+[username]
+format = "[$user]($style)"
+style_user = "#D7AF87"
+style_root = "#D7AF00"
+show_always = false
+
+[hostname]
+format = "[@$hostname]($style) "
+style = "#D7AF87"
+ssh_only = true
+
+[jobs]
+format = "[$symbol$number]($style) "
+style = "#5FAF00"
+symbol = " "
+number_threshold = 1
+
 [line_break]
 disabled = true
