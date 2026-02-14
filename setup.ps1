@@ -9,7 +9,6 @@ function Install-ScoopApp {
     }
 }
 
-# This function is idempotent
 function Install-Scoop {
     if (Get-Command scoop -ErrorAction SilentlyContinue) {
         Write-Host "Scoop is already installed. Skipping..." -ForegroundColor Yellow
