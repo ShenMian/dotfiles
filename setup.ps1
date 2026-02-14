@@ -1,3 +1,4 @@
+# This function is idempotent
 function Install-ScoopApp {
     param (
         [Parameter(Position = 0, Mandatory=$true)]
@@ -8,6 +9,7 @@ function Install-ScoopApp {
     }
 }
 
+# This function is idempotent
 function Install-Scoop {
     if (Get-Command scoop -ErrorAction SilentlyContinue) {
         Write-Host "Scoop is already installed. Skipping..." -ForegroundColor Yellow
