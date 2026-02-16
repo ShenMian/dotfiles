@@ -12,7 +12,7 @@ function Unset-Proxy {
     Remove-Item Env:*proxy* -ErrorAction SilentlyContinue
 }
 
-Set-Proxy
+# Set-Proxy
 
 ## Alias
 
