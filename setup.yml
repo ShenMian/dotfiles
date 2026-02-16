@@ -1,0 +1,40 @@
+---
+- name : Setup
+  hosts: localhost
+  connection: local
+  vars_files:
+    - vars.yml
+
+  tasks:
+    - name: Setup Git
+      git_config:
+        name: "{{ item.key }}"
+        value: "{{ item.value }}"
+        scope: global
+      loop:
+        - { key: "user.name", value: "ShenMian" }
+        - { key: "user.email", value: "sms_school@outlook.com" }
+        - { key: "init.defaultBranch", value: "main" }
+        - { key: "pull.rebase", value: "true" }
+
+    - name: Install packages
+      become: yes
+      pacman:
+        name: "{{ packages }}"
+        state: present
+        update_cache: yes
+
+    - name: Install AUR Packages
+      kewlfft.aur.aur:
+        name: "{{ item }}"
+        state: present
+      become: yes
+      become_user: "{{ lookup('env', 'USER') }}"
+      loop: "{{ aur_packages }}"
+
+    - name: Install Flatpak applications
+      flatpak:
+        name: "{{ item }}"
+        method: user
+        state: present
+      loop: "{{ flatpak_applications }}"

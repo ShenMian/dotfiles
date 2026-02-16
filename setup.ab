@@ -44,12 +44,12 @@ fun setup_flatpak_apps() {
     echo_info("Installing flatpak apps")
 
     let utilities = ["com.github.tchx84.Flatseal"] // "org.bleachbit.BleachBit"
-    let browsers = ["com.microsoft.Edge", "org.torproject.torbrowser-launcher"] // "org.mozilla.firefox"
+    let browsers = ["com.microsoft.Edge"] // "org.torproject.torbrowser-launcher", "org.mozilla.firefox"
     let development = [Text] // "dev.zed.Zed", "com.visualstudio.code", "re.rizin.cutter"
     let communication = ["com.qq.QQ", "com.tencent.WeChat"] // "org.telegram.desktop", "im.riot.Riot"
-    let security = ["com.bitwarden.desktop", "org.kde.kleopatra"]
+    let security = [Text] // "com.bitwarden.desktop", "org.kde.kleopatra"
     let office = ["eu.betterbird.Betterbird", "org.onlyoffice.desktopeditors"] // "org.mozilla.Thunderbird", "org.libreoffice.LibreOffice", "com.github.IsmaelMartinez.teams_for_linux"
-    let multimedia = ["org.gnome.Loupe", "com.github.neithern.g4music"]
+    let multimedia = [Text] // "org.gnome.Loupe", "com.github.neithern.g4music"
 
     let apps = utilities + browsers + security + communication + development + multimedia + office
     for app in apps {
@@ -87,9 +87,7 @@ fun setup_input_method() {
 
 fun setup_fonts() {
     echo_info("Installing fonts")
-    install_package("noto-fonts-cjk")?
-    install_package("otf-cascadia-code")?
-    install_package("adobe-source-han-serif-cn-fonts")?
+    install_packages(["noto-fonts-cjk", "otf-cascadia-code", "adobe-source-han-serif-cn-fonts"])?
 
     echo_success("Successed")
 }

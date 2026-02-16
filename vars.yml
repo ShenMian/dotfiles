@@ -1,0 +1,39 @@
+packages:
+  # Basic
+  - git
+  - base-devel
+  # CLI
+  - fastfetch
+  - eza
+  - bat
+  - fd
+  - ripgrep
+  # Development
+  - neovim
+  - wl-clipboard
+  - lazygit
+  - zed
+  - github-cli
+  # Fonts
+  - noto-fonts-cjk
+  - otf-cascadia-code
+  - adobe-source-han-serif-cn-fonts
+  # Input method
+  - fcitx5
+  - fcitx5-configtool
+  - fcitx5-gtk
+  - fcitx5-qt
+  - fcitx5-rime
+
+aur_packages:
+  # Development
+  - visual-studio-code-bin
+  - antigravity
+  # Input method
+  - rime-ice-git
+
+flatpak_applications:
+  - com.github.tchx84.Flatseal
+  - com.microsoft.Edge
+  - com.qq.QQ
+  - com.tencent.WeChat

@@ -4,6 +4,13 @@
 
 ## Arch Linux
 
+```sh
+ansible-galaxy install -r requirements.yml
+ansible-playbook setup.yml
+```
+
+---
+
 - [ ] 将 `setup.sh` 合并到 `setup.ab`, 然后将 `setup.ab` 编译为 `setup.sh`.
 - [ ] 待 Amber 0.4.0 稳定后, 进行升级: <https://docs.amber-lang.com/getting_started/migration_guide>.
 
@@ -24,7 +31,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ![Screenshot](docs/screenshot.png)  
 
 | Name       | Description                          |
-|------------|--------------------------------------|
+| ---------- | ------------------------------------ |
 | backup.sh  | Backup dotfiles.                     |
 | restore.sh | Restore dotfiles.                    |
 | update.sh  | Update dotfiles.                     |
