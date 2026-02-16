@@ -19,7 +19,6 @@ Set-Proxy
 # Utility aliases
 Set-Alias -Name c -Value clear
 
-# eza
 if (Get-Command eza -ErrorAction SilentlyContinue) {
     Set-Alias -Name ls -Value eza -Option AllScope
     Set-Alias -Name l -Value eza -Option AllScope
@@ -27,21 +26,21 @@ if (Get-Command eza -ErrorAction SilentlyContinue) {
     function tree { eza --tree @args }
 }
 
-# bat
 if (Get-Command bat -ErrorAction SilentlyContinue) {
     function cat { bat -pp @args }
 }
 
-# Editor aliases
-Set-Alias -Name v -Value nvim
-Set-Alias -Name vi -Value neovide
-Set-Alias -Name hx -Value helix -Option AllScope
+if (Get-Command nvim -ErrorAction SilentlyContinue) {
+    Set-Alias -Name v -Value nvim
+}
 
-# Tool aliases
-Set-Alias -Name lg -Value lazygit
-Set-Alias -Name youtube -Value yt-dlp -Option AllScope
+if (Get-Command lazygit -ErrorAction SilentlyContinue) {
+    Set-Alias -Name lg -Value lazygit
+}
+if (Get-Command yt-dlp -ErrorAction SilentlyContinue) {
+    Set-Alias -Name youtube -Value yt-dlp -Option AllScope
+}
 
-# scoop-search
 if (Get-Command scoop-search -ErrorAction SilentlyContinue) {
     Invoke-Expression (&scoop-search --hook)
 }
