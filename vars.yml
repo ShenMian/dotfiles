@@ -1,3 +1,9 @@
+git_configs:
+  - { key: "user.name", value: "ShenMian" }
+  - { key: "user.email", value: "sms_school@outlook.com" }
+  - { key: "init.defaultBranch", value: "main" }
+  - { key: "pull.rebase", value: "true" }
+
 packages:
   # Basic
   - git

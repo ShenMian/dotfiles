@@ -11,11 +11,7 @@
         name: "{{ item.key }}"
         value: "{{ item.value }}"
         scope: global
-      loop:
-        - { key: "user.name", value: "ShenMian" }
-        - { key: "user.email", value: "sms_school@outlook.com" }
-        - { key: "init.defaultBranch", value: "main" }
-        - { key: "pull.rebase", value: "true" }
+      loop: "{{ git_configs }}"
 
     - name: Install packages
       become: yes
