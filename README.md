@@ -5,17 +5,10 @@
 ## Arch Linux
 
 ```sh
+sudo pacman -S ansible
 ansible-galaxy install -r requirements.yml
-ansible-playbook setup.yml
+ansible-playbook -K setup.yml
 ```
-
----
-
-- [ ] 将 `setup.sh` 合并到 `setup.ab`, 然后将 `setup.ab` 编译为 `setup.sh`.
-- [ ] 待 Amber 0.4.0 稳定后, 进行升级: <https://docs.amber-lang.com/getting_started/migration_guide>.
-
-> [!WARNING]
-> 不要执行 `setup.sh`, 除非你知道你在干什么.  
 
 ## Windows
 
@@ -25,6 +18,12 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
 ---
+
+- [ ] 将 `setup.sh` 合并到 `setup.ab`, 然后将 `setup.ab` 编译为 `setup.sh`.
+- [ ] 待 Amber 0.4.0 稳定后, 进行升级: <https://docs.amber-lang.com/getting_started/migration_guide>.
+
+> [!WARNING]
+> 不要执行 `setup.sh`, 除非你知道你在干什么.  
 
 ## Legacy scripts
 

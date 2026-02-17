@@ -31,6 +31,6 @@
     - name: Install Flatpak applications
       flatpak:
         name: "{{ item }}"
-        method: user
+        method: system
         state: present
       loop: "{{ flatpak_applications }}"

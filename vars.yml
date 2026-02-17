@@ -7,19 +7,28 @@ git_configs:
 packages:
   # Basic
   - git
+  - git-lfs
   - base-devel
-  # CLI
+  # Command line tools
+  - fish
+  - fisher
   - fastfetch
   - eza
-  - bat
   - fd
   - ripgrep
+  - bat
   # Development
+  - rustup
+  - typst
   - neovim
   - wl-clipboard
   - lazygit
   - zed
+  - scc
   - github-cli
+  - git-cliff
+  - difftastic
+  - godot
   # Fonts
   - noto-fonts-cjk
   - otf-cascadia-code
@@ -30,8 +39,34 @@ packages:
   - fcitx5-gtk
   - fcitx5-qt
   - fcitx5-rime
+  # Office
+  - libreoffice-fresh
+  - thunderbird
+  # Drivers
+  - sof-firmware
+  - muteled
+  # Desktop environment
+  - plymouth
+  - power-profiles-daemon
+  # Gaming
+  - gamemode
+  # Terminals
+  - alacritty
+  - ghostty
+  # Security
+  - bitwarden
+  - kleopatra
+  - bleachbit
+  # Instant messaging
+  - telegram-desktop
+  - signal-desktop
 
 aur_packages:
+  - bilibili-appimage
+  - localsend-bin
+  # Proxies
+  - clash-verge-rev-bin
+  - mihomo-party
   # Development
   - visual-studio-code-bin
   - antigravity
@@ -40,6 +75,11 @@ aur_packages:
 
 flatpak_applications:
   - com.github.tchx84.Flatseal
+  - org.gtk.Gtk3theme.Breeze
   - com.microsoft.Edge
+  # Instant messaging
   - com.qq.QQ
   - com.tencent.WeChat
+  # Gaming
+  - com.valvesoftware.Steam
+  - com.valvesoftware.Steam.CompatibilityTool.Proton-GE
