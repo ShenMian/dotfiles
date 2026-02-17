@@ -20,7 +20,7 @@
         state: present
         update_cache: yes
 
-    - name: Install AUR Packages
+    - name: Install AUR packages
       kewlfft.aur.aur:
         name: "{{ item }}"
         state: present
