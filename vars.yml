@@ -9,25 +9,31 @@ packages:
   - git
   - git-lfs
   - base-devel
+  - man-db
+  # Drivers
+  - intel-ucode
+  - sof-firmware
+  - ntfs-3g
+  - muteled
   # Command line tools
   - fish
   - fisher
   - fastfetch
-  - eza
-  - fd
-  - ripgrep
-  - bat
+  - eza          # ls 替代品
+  - fd           # find 替代品
+  - ripgrep      # grep 替代品
+  - bat          # cat 替代品
   # Development
   - rustup
   - typst
   - neovim
-  - wl-clipboard
-  - lazygit
+  - wl-clipboard # Wayland 剪贴板 CLI
   - zed
-  - scc
+  - scc          # 代码统计
   - github-cli
+  - lazygit
   - git-cliff
-  - difftastic
+  - difftastic   # 基于语法的 diff
   - godot
   # Fonts
   - noto-fonts-cjk
@@ -39,12 +45,6 @@ packages:
   - fcitx5-gtk
   - fcitx5-qt
   - fcitx5-rime
-  # Office
-  - libreoffice-fresh
-  - thunderbird
-  # Drivers
-  - sof-firmware
-  - muteled
   # Desktop environment
   - plymouth
   - power-profiles-daemon
@@ -53,17 +53,23 @@ packages:
   # Terminals
   - alacritty
   - ghostty
-  # Security
-  - bitwarden
-  - kleopatra
-  - bleachbit
   # Instant messaging
   - telegram-desktop
   - signal-desktop
+  # Security
+  - bitwarden      # 密码管理
+  - kleopatra      # OpenPGP 密钥管理
+  # System
+  - bleachbit      # 痕迹/垃圾清理
+  - timeshift      # 系统快照
+  - zram-generator # 内存压缩
+  # Office
+  - libreoffice-fresh
+  - thunderbird
 
 aur_packages:
   - bilibili-appimage
-  - localsend-bin
+  - localsend-bin # 本地文件传输
   # Proxies
   - clash-verge-rev-bin
   - mihomo-party
@@ -74,8 +80,9 @@ aur_packages:
   - rime-ice-git
 
 flatpak_applications:
-  - com.github.tchx84.Flatseal
-  - org.gtk.Gtk3theme.Breeze
+  - com.github.tchx84.Flatseal # Flatpak 应用管理
+  - org.gtk.Gtk3theme.Breeze   # GTK 主题
+  # Browsers
   - com.microsoft.Edge
   # Instant messaging
   - com.qq.QQ

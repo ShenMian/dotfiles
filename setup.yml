@@ -16,14 +16,13 @@
     - name: Install packages
       become: yes
       pacman:
-        name: "{{ packages }}"
-        state: present
+        name: "{{ item }}"
         update_cache: yes
+      loop: "{{ packages }}"
 
     - name: Install AUR packages
       kewlfft.aur.aur:
         name: "{{ item }}"
-        state: present
       become: yes
       become_user: "{{ lookup('env', 'USER') }}"
       loop: "{{ aur_packages }}"
@@ -31,6 +30,4 @@
     - name: Install Flatpak applications
       flatpak:
         name: "{{ item }}"
-        method: system
-        state: present
       loop: "{{ flatpak_applications }}"
