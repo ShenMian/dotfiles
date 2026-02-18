@@ -66,6 +66,10 @@ packages:
   # Office
   - libreoffice-fresh
   - thunderbird
+  # ORC
+  - tesseract
+  - tesseract-data-chi_sim
+  - tesseract-data-eng
 
 aur_packages:
   - bilibili-appimage
