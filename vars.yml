@@ -3,6 +3,9 @@ git_configs:
   - { key: "user.email", value: "sms_school@outlook.com" }
   - { key: "init.defaultBranch", value: "main" }
   - { key: "pull.rebase", value: "true" }
+  - { key: "rerere.enabled", value: "true" }
+  - { key: "column.ui", value: "auto" }
+  - { key: "branch.sort", value: "-committerdate" }
 
 packages:
   # Basic
@@ -10,11 +13,17 @@ packages:
   - git-lfs
   - base-devel
   - man-db
+  # Kernels
+  - linux
+  - linux-headers
+  - linux-zen
+  - linux-zen-headers
   # Drivers
   - intel-ucode
   - sof-firmware
   - ntfs-3g
-  - muteled
+  - muteled      # HP OMEN 临时解决方案
+  - nvidia-open-dkms
   # Command line tools
   - fish
   - fisher
@@ -48,8 +57,6 @@ packages:
   # Desktop environment
   - plymouth
   - power-profiles-daemon
-  # Gaming
-  - gamemode
   # Terminals
   - alacritty
   - ghostty
@@ -66,14 +73,29 @@ packages:
   # Office
   - libreoffice-fresh
   - thunderbird
+  # Media
+  - mpv
+  - vapoursynth
+  - vapoursynth-plugin-mvtools # 补帧
+  - yt-dlp
+  - ffmpeg
+  # Networking
+  - magic-wormhole
+  # Gaming
+  - gamemode
+  # Virtualization
+  - virtualbox
+  - virtualbox-host-dkms
   # ORC
-  - tesseract
-  - tesseract-data-chi_sim
-  - tesseract-data-eng
+  # - tesseract
+  # - tesseract-data-chi_sim
+  # - tesseract-data-eng
 
 aur_packages:
-  - bilibili-appimage
+  # Networking
   - localsend-bin # 本地文件传输
+  # Media
+  - bilibili-appimage
   # Proxies
   - clash-verge-rev-bin
   - mihomo-party

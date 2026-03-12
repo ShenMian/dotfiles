@@ -6,6 +6,12 @@
     - vars.yml
 
   tasks:
+    - name: Ensure the distribution is Arch Linux
+      assert:
+        that:
+          - ansible_facts["distribution"] == "Archlinux"
+        fail_msg: 'Expected Archlinux but found {{ ansible_facts["distribution"] }}.'
+
     - name: Setup Git
       git_config:
         name: "{{ item.key }}"
@@ -24,10 +30,38 @@
       kewlfft.aur.aur:
         name: "{{ item }}"
       become: yes
-      become_user: "{{ lookup('env', 'USER') }}"
+      become_user: '{{ ansible_facts["user_id"] }}'
       loop: "{{ aur_packages }}"
 
     - name: Install Flatpak applications
       flatpak:
         name: "{{ item }}"
       loop: "{{ flatpak_applications }}"
+
+    - name: Setup Rust toolchain
+      command: "rustup default stable"
+
+    - name: Setup mpv configuration
+      copy:
+        src: mpv
+        dest: "{{ lookup('env', 'HOME') }}/.config/"
+
+    - name: Setup Alacritty configuration
+      copy:
+        src: alacritty/alacritty.toml
+        dest: "{{ lookup('env', 'HOME') }}/.config/alacritty.toml"
+
+    - name: Setup Ghostty configuration
+      copy:
+        src: ghostty
+        dest: "{{ lookup('env', 'HOME') }}/.config/"
+
+    - name: Setup Lazygit configuration
+      copy:
+        src: lazygit
+        dest: "{{ lookup('env', 'HOME') }}/.config/"
+
+    - name: Switch default shell to Fish
+      user:
+        name: '{{ ansible_facts["user_id"] }}'
+        shell: /usr/bin/fish
