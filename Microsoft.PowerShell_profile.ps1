@@ -17,6 +17,7 @@ function Unset-Proxy {
 ## Alias
 
 # Utility aliases
+Set-Alias -Name open -Value start
 Set-Alias -Name c -Value clear
 
 if (Get-Command eza -ErrorAction SilentlyContinue) {
