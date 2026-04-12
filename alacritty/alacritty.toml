@@ -1,12 +1,13 @@
 [window]
-dimensions.columns = 100
-dimensions.lines = 30
+dimensions = { columns = 100, lines = 30 }
 opacity = 0.9
 dynamic_title = false
 
 [font]
-normal.family = "Cascadia Code NF"
-bold.family = "Cascadia Code NF"
-italic.family = "Cascadia Code NF"
-bold_italic.family = "Cascadia Code NF"
+normal = { family = "Cascadia Code NF" }
 size = 12.0
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
