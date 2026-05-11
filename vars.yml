@@ -1,0 +1,118 @@
+git_configs:
+  - { key: "user.name", value: "ShenMian" }
+  - { key: "user.email", value: "sms_school@outlook.com" }
+  - { key: "init.defaultBranch", value: "main" }
+  - { key: "pull.rebase", value: "true" }
+  - { key: "rerere.enabled", value: "true" }
+  - { key: "column.ui", value: "auto" }
+  - { key: "branch.sort", value: "-committerdate" }
+
+packages:
+  # Basic
+  - git
+  - git-lfs
+  - base-devel
+  - man-db
+  # Kernels
+  - linux
+  - linux-headers
+  - linux-zen
+  - linux-zen-headers
+  # Drivers
+  - intel-ucode
+  - sof-firmware
+  - ntfs-3g
+  - muteled      # HP OMEN 临时解决方案
+  - nvidia-open-dkms
+  # Command line tools
+  - fish
+  - fisher
+  - fastfetch
+  - eza          # ls 替代品
+  - fd           # find 替代品
+  - ripgrep      # grep 替代品
+  - bat          # cat 替代品
+  # Development
+  - rustup
+  - typst
+  - neovim
+  - wl-clipboard # Wayland 剪贴板 CLI
+  - zed
+  - scc          # 代码统计
+  - github-cli
+  - lazygit
+  - git-cliff
+  - difftastic   # 基于语法的 diff
+  - godot
+  # Fonts
+  - noto-fonts-cjk
+  - otf-cascadia-code
+  - adobe-source-han-serif-cn-fonts
+  # Input method
+  - fcitx5
+  - fcitx5-configtool
+  - fcitx5-gtk
+  - fcitx5-qt
+  - fcitx5-rime
+  # Desktop environment
+  - plymouth
+  - power-profiles-daemon
+  # Terminals
+  - alacritty
+  - ghostty
+  # Instant messaging
+  - telegram-desktop
+  - signal-desktop
+  # Security
+  - bitwarden      # 密码管理
+  - kleopatra      # OpenPGP 密钥管理
+  # System
+  - bleachbit      # 痕迹/垃圾清理
+  - timeshift      # 系统快照
+  - zram-generator # 内存压缩
+  # Office
+  - libreoffice-fresh
+  - thunderbird
+  # Media
+  - mpv
+  - vapoursynth
+  - vapoursynth-plugin-mvtools # 补帧
+  - yt-dlp
+  - ffmpeg
+  # Networking
+  - magic-wormhole
+  # Gaming
+  - gamemode
+  # Virtualization
+  - virtualbox
+  - virtualbox-host-dkms
+  # ORC
+  # - tesseract
+  # - tesseract-data-chi_sim
+  # - tesseract-data-eng
+
+aur_packages:
+  # Networking
+  - localsend-bin # 本地文件传输
+  # Media
+  - bilibili-appimage
+  # Proxies
+  - clash-verge-rev-bin
+  - mihomo-party
+  # Development
+  - visual-studio-code-bin
+  - antigravity
+  # Input method
+  - rime-ice-git
+
+flatpak_applications:
+  - com.github.tchx84.Flatseal # Flatpak 应用管理
+  - org.gtk.Gtk3theme.Breeze   # GTK 主题
+  # Browsers
+  - com.microsoft.Edge
+  # Instant messaging
+  - com.qq.QQ
+  - com.tencent.WeChat
+  # Gaming
+  - com.valvesoftware.Steam
+  - com.valvesoftware.Steam.CompatibilityTool.Proton-GE

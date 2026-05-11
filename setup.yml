@@ -1,0 +1,81 @@
+---
+- name : Setup
+  hosts: localhost
+  connection: local
+  vars_files:
+    - vars.yml
+
+  tasks:
+    - name: Ensure the distribution is Arch Linux
+      assert:
+        that:
+          - ansible_facts["distribution"] == "Archlinux"
+        fail_msg: 'Expected Archlinux but found {{ ansible_facts["distribution"] }}.'
+
+    - name: Setup Git
+      git_config:
+        name: "{{ item.key }}"
+        value: "{{ item.value }}"
+        scope: global
+      loop: "{{ git_configs }}"
+
+    - name: Install packages
+      become: yes
+      pacman:
+        name: "{{ item }}"
+        update_cache: yes
+      loop: "{{ packages }}"
+
+    - name: Install AUR packages
+      kewlfft.aur.aur:
+        name: "{{ item }}"
+      become: yes
+      become_user: '{{ ansible_facts["user_id"] }}'
+      loop: "{{ aur_packages }}"
+
+    - name: Install Flatpak applications
+      flatpak:
+        name: "{{ item }}"
+      loop: "{{ flatpak_applications }}"
+
+    - name: Setup Rust toolchain
+      command: "rustup default stable"
+
+    - name: Switch default shell to Fish
+      user:
+        name: '{{ ansible_facts["user_id"] }}'
+        shell: /usr/bin/fish
+
+    - name: Setup Alacritty configuration
+      copy:
+        src: alacritty/alacritty.toml
+        dest: "{{ lookup('env', 'HOME') }}/.config/alacritty.toml"
+
+    - name: Setup Ghostty configuration
+      copy:
+        src: ghostty
+        dest: "{{ lookup('env', 'HOME') }}/.config/"
+
+    - name: Setup Lazygit configuration
+      copy:
+        src: lazygit
+        dest: "{{ lookup('env', 'HOME') }}/.config/"
+
+    - name: Setup mpv configuration
+      copy:
+        src: mpv
+        dest: "{{ lookup('env', 'HOME') }}/.config/"
+
+    - name: Ensure rime configuration directory exists
+      file:
+        path: "{{ lookup('env', 'HOME') }}/.local/share/fcitx5/rime"
+        state: directory
+        mode: '0755'
+
+    - name: Enable rime-ice
+      copy:
+        content: |
+          patch:
+            __include: rime_ice_suggestion:/
+        dest: "{{ lookup('env', 'HOME') }}/.local/share/fcitx5/rime/default.custom.yaml"
+        force: no
