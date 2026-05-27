@@ -1,9 +1,0 @@
-[Unit]
-Description=Auto script
- 
-[Service]
-ExecStart=/home/sms/scripts/autoscript.sh
- 
-[Install]
-WantedBy=default.target
-

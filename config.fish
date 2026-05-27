@@ -3,15 +3,16 @@
 function set_proxy -d "Set proxy environment variables"
     set -l PROXY_SERVER "127.0.0.1:7897"
 
-    set -Ux all_proxy "socks://$PROXY_SERVER/"
-    set -Ux http_proxy "http://$PROXY_SERVER/"
-    set -Ux https_proxy $http_proxy
-    set -Ux no_proxy "localhost, 127.0.0.0/8, ::1"
+    set -gx all_proxy "socks://$PROXY_SERVER/"
+    set -gx http_proxy "http://$PROXY_SERVER/"
+    set -gx https_proxy $http_proxy
+    set -gx no_proxy "localhost,127.0.0.0/8,::1"
 
-    set -Ux ALL_PROXY $all_proxy
-    set -Ux HTTP_PROXY $http_proxy
-    set -Ux HTTPS_PROXY $https_proxy
-    set -Ux NO_PROXY $no_proxy
+    # Uppercase for compatibility
+    set -gx ALL_PROXY $all_proxy
+    set -gx HTTP_PROXY $http_proxy
+    set -gx HTTPS_PROXY $https_proxy
+    set -gx NO_PROXY $no_proxy
 end
 
 function unset_proxy -d "Remove proxy environment variables"
@@ -32,9 +33,9 @@ end
 
 # set -x TERM xterm-256color
 
-set -Ux VISUAL "nvim"
-set -Ux EDITOR "nvim"
-set -Ux MANPAGER "nvim +Man!"
+set -gx VISUAL "nvim"
+set -gx EDITOR "nvim"
+set -gx MANPAGER "nvim +Man!"
 
 set -gx GPG_TTY (tty)
 
@@ -42,7 +43,7 @@ if test -f (dirname (status -f))/secrets.fish
     source (dirname (status -f))/secrets.fish
 end
 
-fish_add_path -Ua "$HOME/.cargo/bin/"
+fish_add_path -a "$HOME/.cargo/bin/"
 
 if status is-interactive
     # Remove fish greeting message

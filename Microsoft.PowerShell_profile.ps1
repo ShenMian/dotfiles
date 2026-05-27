@@ -5,7 +5,7 @@ function Set-Proxy {
     $Env:all_proxy = "socks://$PROXY_SERVER/"
     $Env:http_proxy = "http://$PROXY_SERVER/"
     $Env:https_proxy = $Env:http_proxy
-    $Env:no_proxy = "localhost, 127.0.0.0/8, ::1"
+    $Env:no_proxy = "localhost,127.0.0.0/8,::1"
 }
 
 function Unset-Proxy {
@@ -13,6 +13,12 @@ function Unset-Proxy {
 }
 
 # Set-Proxy
+
+## Environment
+
+$Env:VISUAL = "nvim"
+$Env:EDITOR = "nvim"
+$Env:MANPAGER = "nvim +Man!"
 
 ## Alias
 
