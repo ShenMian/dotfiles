@@ -12,7 +12,7 @@ return {
   { import = "astrocommunity.editing-support.vim-visual-multi" },
 
   { import = "astrocommunity.completion.copilot-lua-cmp" },
-  { import = "astrocommunity.editing-support.copilotchat-nvim" },
+  { import = "astrocommunity.ai.copilotchat-nvim" },
   { import = "astrocommunity.workflow.hardtime-nvim" },
   { import = "astrocommunity.media.vim-wakatime" },
   { import = "astrocommunity.recipes.neovide" },
