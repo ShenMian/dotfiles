@@ -82,6 +82,7 @@ packages:
   # Networking
   # - magic-wormhole
   # Gaming
+  - nvidia-prime
   - gamemode
   # Virtualization
   # - virtualbox
