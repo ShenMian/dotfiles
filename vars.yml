@@ -21,8 +21,7 @@ packages:
   # Drivers
   - intel-ucode
   - sof-firmware
-  - ntfs-3g
-  - muteled      # HP OMEN 临时解决方案
+  # - ntfs-3g
   - nvidia-open-dkms
   # Command line tools
   - fish
@@ -38,7 +37,6 @@ packages:
   - neovim
   - wl-clipboard # Wayland 剪贴板 CLI
   - zed
-  - scc          # 代码统计
   - github-cli
   - lazygit
   - git-cliff
@@ -54,12 +52,14 @@ packages:
   - fcitx5-gtk
   - fcitx5-qt
   - fcitx5-rime
+  # - fcitx5-chinese-addons
+  # - fcitx5-pinyin-zhwiki
   # Desktop environment
   - plymouth
   - power-profiles-daemon
   # Terminals
   - alacritty
-  - ghostty
+  # - ghostty
   # Instant messaging
   - telegram-desktop
   - signal-desktop
@@ -67,33 +67,35 @@ packages:
   - bitwarden      # 密码管理
   - kleopatra      # OpenPGP 密钥管理
   # System
-  - bleachbit      # 痕迹/垃圾清理
-  - timeshift      # 系统快照
-  - zram-generator # 内存压缩
+  - bleachbit        # 痕迹/垃圾清理
+  # - timeshift      # 系统快照
+  # - zram-generator # 内存压缩
   # Office
   - libreoffice-fresh
   - thunderbird
   # Media
   - mpv
-  - vapoursynth
-  - vapoursynth-plugin-mvtools # 补帧
+  # - vapoursynth
+  # - vapoursynth-plugin-mvtools # 补帧
   - yt-dlp
   - ffmpeg
   # Networking
-  - magic-wormhole
+  # - magic-wormhole
   # Gaming
   - gamemode
   # Virtualization
-  - virtualbox
-  - virtualbox-host-dkms
+  # - virtualbox
+  # - virtualbox-host-dkms
   # ORC
   # - tesseract
   # - tesseract-data-chi_sim
   # - tesseract-data-eng
+  - dolphin          # KDE 文件管理器
+  - partitionmanager # KDE 分区管理器
 
 aur_packages:
   # Networking
-  - localsend-bin # 本地文件传输
+  # - localsend-bin # 本地文件传输
   # Media
   - bilibili-appimage
   # Proxies
@@ -101,13 +103,16 @@ aur_packages:
   - mihomo-party
   # Development
   - visual-studio-code-bin
-  - antigravity
+  # - antigravity
   # Input method
   - rime-ice-git
+  # - scc          # 代码统计
+  # - muteled      # HP OMEN 临时解决方案
 
 flatpak_applications:
-  - com.github.tchx84.Flatseal # Flatpak 应用管理
-  - org.gtk.Gtk3theme.Breeze   # GTK 主题
+  - com.github.tchx84.Flatseal  # Flatpak 应用管理
+  - org.gtk.Gtk3theme.Breeze    # GTK 主题
+  - org.localsend.localsend_app # 局域网文件传输
   # Browsers
   - com.microsoft.Edge
   # Instant messaging
