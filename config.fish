@@ -1,7 +1,7 @@
 ## Proxy
 
 function set_proxy -d "Set proxy environment variables"
-    set -l PROXY_SERVER "127.0.0.1:7897"
+    set -l PROXY_SERVER "127.0.0.1:7890"
 
     set -gx all_proxy "socks://$PROXY_SERVER/"
     set -gx http_proxy "http://$PROXY_SERVER/"
@@ -27,7 +27,7 @@ function unset_proxy -d "Remove proxy environment variables"
     set -e NO_PROXY
 end
 
-# set_proxy
+set_proxy
 
 ## Environment
 
