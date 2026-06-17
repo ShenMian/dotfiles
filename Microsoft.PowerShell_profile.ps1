@@ -36,7 +36,8 @@ if (Get-Command eza -ErrorAction SilentlyContinue) {
 }
 
 if (Get-Command bat -ErrorAction SilentlyContinue) {
-    function cat { bat -pp @args }
+    function Invoke-Bat { bat -pp @args }
+    Set-Alias -Name cat -Value Invoke-Bat -Option AllScope -Force
 }
 
 if (Get-Command nvim -ErrorAction SilentlyContinue) {
@@ -51,7 +52,7 @@ if (Get-Command yt-dlp -ErrorAction SilentlyContinue) {
 }
 
 if (Get-Command scoop-search -ErrorAction SilentlyContinue) {
-    Invoke-Expression (&scoop-search --hook)
+    . ([ScriptBlock]::Create((& scoop-search --hook | Out-String)))
 }
 
 ## PowerShell
