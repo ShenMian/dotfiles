@@ -1,7 +1,7 @@
 ## Proxy
 
 function Set-Proxy {
-    $PROXY_SERVER = "127.0.0.1:7897"
+    $PROXY_SERVER = "127.0.0.1:7890"
     $Env:all_proxy = "$PROXY_SERVER"
     $Env:http_proxy = "http://$PROXY_SERVER/"
     $Env:https_proxy = $Env:http_proxy
