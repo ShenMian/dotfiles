@@ -2,23 +2,25 @@
 
 function Set-Proxy {
     $PROXY_SERVER = "127.0.0.1:7897"
-    $Env:all_proxy = "socks://$PROXY_SERVER/"
+    $Env:all_proxy = "$PROXY_SERVER"
     $Env:http_proxy = "http://$PROXY_SERVER/"
     $Env:https_proxy = $Env:http_proxy
-    $Env:no_proxy = "localhost,127.0.0.0/8,::1"
+    $Env:no_proxy = "localhost,127.0.0.0/8,::1,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12"
 }
 
 function Unset-Proxy {
     Remove-Item Env:*proxy* -ErrorAction SilentlyContinue
 }
 
-# Set-Proxy
+Set-Proxy
 
 ## Environment
 
-$Env:VISUAL = "nvim"
-$Env:EDITOR = "nvim"
-$Env:MANPAGER = "nvim +Man!"
+if (Get-Command nvim -ErrorAction SilentlyContinue) {
+    $Env:VISUAL = "nvim"
+    $Env:EDITOR = "nvim"
+    $Env:MANPAGER = "nvim +Man!"
+}
 
 ## Alias
 
