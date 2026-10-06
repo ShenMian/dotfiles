@@ -1,4 +1,5 @@
 git:
-  pagers:
-    - externalDiffCommand: difft --color always --display inline
+  diffRenderers:
+    - command: difft --color always --display inline
+      type: extDiff
   overrideGpg: true
