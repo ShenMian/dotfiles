@@ -27,7 +27,7 @@ function unset_proxy -d "Remove proxy environment variables"
     set -e NO_PROXY
 end
 
-set_proxy
+# set_proxy
 
 ## Environment
 
@@ -57,7 +57,7 @@ if status is-interactive
     if type -q eza
         alias ls="eza"
         alias l="ls"
-        alias ll="eza --long --icons"
+        alias ll="eza --long --icons always"
         alias tree="eza --tree"
     else
         alias l="ls"
@@ -96,3 +96,6 @@ end
 
 # Force standard key bindings (overrides implicit Vi mode from EDITOR=nvim)
 fish_default_key_bindings
+
+# Pi
+fish_add_path "/home/sms/.pi/agent/bin"
