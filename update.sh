@@ -10,7 +10,7 @@ ln -sf "$PWD/config.fish" ~/.config/fish/config.fish
 ln -sf "$PWD/secrets.fish" ~/.config/fish/secrets.fish
 
 # mpv
-ln -sf "$PWD/mpv" ~/.config/
+# ln -sf "$PWD/mpv" ~/.config/
 
 # alacritty
 ln -sf "$PWD/alacritty" ~/.config/
@@ -19,7 +19,7 @@ ln -sf "$PWD/alacritty" ~/.config/
 ln -sf "$PWD/astronvim" ~/.config/nvim
 
 # neovide
-ln -sf "$PWD/neovide" ~/.config/
+# ln -sf "$PWD/neovide" ~/.config/
 
 # helix
 # ln -sf "$PWD/helix" ~/.config/
